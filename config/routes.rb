@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
 
+=======
+  resources :mannequins
+>>>>>>> master
   devise_for :users
   root to: 'pages#home'
 
