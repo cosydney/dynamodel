@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808124519) do
+ActiveRecord::Schema.define(version: 20160808130715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 20160808124519) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "photo_shootings", force: :cascade do |t|
+    t.datetime "date"
+    t.integer  "budget"
+    t.text     "description"
+    t.integer  "mannequin_id"
+    t.integer  "client_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "photo_shootings", ["client_id"], name: "index_photo_shootings_on_client_id", using: :btree
+  add_index "photo_shootings", ["mannequin_id"], name: "index_photo_shootings_on_mannequin_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -54,4 +67,6 @@ ActiveRecord::Schema.define(version: 20160808124519) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "photo_shootings", "clients"
+  add_foreign_key "photo_shootings", "mannequins"
 end
