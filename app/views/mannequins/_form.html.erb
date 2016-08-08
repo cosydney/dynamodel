@@ -1,0 +1,21 @@
+<%= simple_form_for(@mannequin) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :age, collection: 18..60, prompt: "Select your age" %>
+    <%= f.input :category %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :height %>
+    <%= f.input :waist %>
+    <%= f.input :chest %>
+    <%= f.input :hair_color %>
+    <%= f.input :eyes %>
+    <%= f.input :ethnicity %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>
+
+<!-- :age, :category, :description, :height, :waist, :chest, :hair_color, :eyes, :ethnicity -->
