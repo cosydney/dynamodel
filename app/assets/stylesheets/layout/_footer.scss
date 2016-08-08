@@ -1,1 +1,13 @@
 // Your footer style
+#footer{
+  background-color: $brand-color;
+  padding: 50px 0px;
+  p{
+    color: white;
+    font-size: 14px;
+    font-family: 'Source sans pro';
+  }
+  h4{
+    color: white;
+  }
+}
