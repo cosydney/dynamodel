@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Add your information</h1>
+
+      <%= simple_form_for(@client) do |f| %>
+        <%= f.error_notification %>
+       <!--  <%= f.object.errors.full_messages %> -->
+
+        <p>
+          <%= f.input :company_name, placeholder: "your company"%>
+        </p>
+
+        <p>
+        <%= f.input :website, placeholder: "your company website"%>
+        </p>
+
+        <%= f.button :submit, class:"btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

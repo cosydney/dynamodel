@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Edit your profile</h1>
+      <%= simple_form_for(@client) do |f| %>
+        <%= f.error_notification %>
+       <!--  <%= f.object.errors.full_messages %> -->
+
+       <!-- change the placeholder to get the company name  -->
+        <p>
+          <%= f.input :company_name%>
+        </p>
+
+        <!-- change the placeholder to get the website -->
+        <p>
+        <%= f.input :website%>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
