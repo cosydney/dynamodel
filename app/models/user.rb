@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   has_one :mannequin
   has_one :client
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, message: "Already exist"
-  validates :phone, presence: true, uniqueness: true, message: "Already exist"
+  validates :email, presence: true, uniqueness: true
+  validates :phone, presence: true, uniqueness: true
 end
