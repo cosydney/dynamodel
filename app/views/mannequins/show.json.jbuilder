@@ -1,0 +1,1 @@
+json.partial! "mannequins/mannequin", mannequin: @mannequin
