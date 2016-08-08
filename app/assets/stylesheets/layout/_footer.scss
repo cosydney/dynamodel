@@ -1,1 +1,33 @@
 // Your footer style
+
+.footer-container{
+  background-color: $brand-color;
+}
+#footer{
+  padding: 50px 0px;
+  height: 250px;
+  p{
+    color: white;
+    font-size: 14px;
+    font-family: 'Source sans pro';
+     &:hover{
+      color: white;
+      opacity: 0.5;
+    }
+  }
+  h4{
+    color: white;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+     &:hover{
+      color: white;
+      opacity: 0.5;
+      text-decoration: none;
+    }
+  }
+  .li-social{
+    margin-bottom: -25px;
+  }
+}
