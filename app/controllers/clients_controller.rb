@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
 
-  before_action :find_client, only: [:new, :create, :edit]
-  before_action :set_client, only: [:show, :update]
+  before_action :find_client, only: [:edit, :show]
+  before_action :set_client, only: [:update, :create]
 
   def show
   end
