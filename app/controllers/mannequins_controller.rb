@@ -46,8 +46,8 @@ class MannequinsController < ApplicationController
   # PATCH/PUT /mannequins/1.json
   def update
     respond_to do |format|
+      set_user_after_save_mannequin
       if @mannequin.update(mannequin_params)
-        set_user_after_save_mannequin
 
         format.html { redirect_to @mannequin, notice: 'Mannequin was successfully updated.' }
         format.json { render :show, status: :ok, location: @mannequin }
@@ -84,7 +84,7 @@ class MannequinsController < ApplicationController
     end
 
     def set_user_after_save_mannequin
-      current_user.first_name = user_params[:first_name]
+      @mannequin.user.first_name = user_params[:first_name]
       current_user.last_name = user_params[:last_name]
       current_user.phone = user_params[:phone]
       current_user.save
