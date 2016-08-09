@@ -13,11 +13,14 @@
   align-items: center;
   justify-content: center;
   font-family: 'Source Sans Pro', sans-serif;
-}
-.banner h1 {
-  font-size: 3.8rem;
-  text-align: center;
-  margin: 0 auto;
+    h1 {
+      font-size: 3.8rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+    a {
+     text-decoration: none;
+    }
 }
 .f500 {
   font-weight: 500;
@@ -25,9 +28,9 @@
 // css copied from dynamodel:
 .banner .banner-content .tutorial {
   margin: 30px 0;
-}
-.banner .banner-content .tutorial a {
-    margin-top: 15px;
+    a {
+      margin-top: 15px;
+    }
 }
 .btn-banner-search {
   margin-right: 5px;
@@ -42,15 +45,13 @@
   color: #454546;
   border: none;
 }
-.banner a {
-  text-decoration: none;
-}
 #btn-home{
   border-radius: 18px;
   padding: 8px 16px;
   font-size: 1.5rem;
   letter-spacing: 2px;
 }
+// this one cannot get nested
 #btn-home:hover{
   background-color: #3B3B3C;
   color: #FFFFFF;
