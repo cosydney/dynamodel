@@ -1,6 +1,15 @@
 <div class="text-center padded">
-<h1>Add photo to my profile</h1>
+<h1>Add photos to my profile</h1>
+<%= render 'form' %>
+<hr>
+<div class="container">
+  <div class="row">
+  <% @mannequin.photos.each do |photo| %>
+    <div class="col-xs-6 col-md-4">
+        <%= cl_image_tag photo.path, width: 300, crop: :fill %>
+    </div>
+    <% end %>
+  </div>
 </div>
 
-
-<%= render 'form' %>
+</div>

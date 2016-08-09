@@ -44,7 +44,6 @@ class AttachinaryFilesController < ApplicationController
   # PATCH/PUT /attachinaryfiles/1
   # PATCH/PUT /attachinaryfiles/1.json
   def update
-    byebug
     respond_to do |format|
       if @attachinaryfile.update(attachinaryfile_params)
         format.html { redirect_to @attachinaryfile, notice: 'Attachinaryfile was successfully updated.' }

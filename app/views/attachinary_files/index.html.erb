@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <h1>Test </h1>
 <% @mannequin.photos.each do |photo| %>
 <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>

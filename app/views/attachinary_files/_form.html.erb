@@ -1,10 +1,7 @@
 
 <%= simple_form_for(@mannequin) do |f| %>
 <%= f.input :photos, as: :attachinary %>
-<%= f.submit %>
+<%= f.submit 'Update my photos' %>
 
-<% @mannequin.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
 <% end %>
 
