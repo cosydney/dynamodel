@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :mannequins
   devise_for :users
   root to: 'pages#home'
 
