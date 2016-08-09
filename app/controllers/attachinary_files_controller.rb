@@ -1,74 +1,79 @@
 class AttachinaryFilesController < ApplicationController
-  before_action :set_attachinary_file, only: [:show, :edit, :update, :destroy]
+  before_action :set_attachinaryfile, only: [:show, :edit, :update, :destroy]
 
-  # GET /attachinary_files
-  # GET /attachinary_files.json
+  # GET /attachinaryfiles
+  # GET /attachinaryfiles.json
   def index
-    @attachinary_files = AttachinaryFile.all
+    @mannequin = Mannequin.find(params[:mannequin_id])
+    @attachinaryfiles = AttachinaryFile.all
   end
 
-  # GET /attachinary_files/1
-  # GET /attachinary_files/1.json
+  # GET /attachinaryfiles/1
+  # GET /attachinaryfiles/1.json
   def show
   end
 
-  # GET /attachinary_files/new
+  # GET /attachinaryfiles/new
   def new
-    @attachinary_file = Attachinary_file.new
+    @mannequin = Mannequin.find(params[:mannequin_id])
+    @attachinaryfile = AttachinaryFile.new
   end
 
-  # GET /attachinary_files/1/edit
+  # GET /attachinaryfiles/1/edit
   def edit
   end
 
-  # POST /attachinary_files
-  # POST /attachinary_files.json
+  # POST /attachinaryfiles
+  # POST /attachinaryfiles.json
   def create
-    @attachinary_file = Attachinary_file.new(attachinary_file_params)
-
+    @mannequin = Mannequin.find(params[:mannequin_id])
+    # @attachinaryfile = AttachinaryFile.new(attachinaryfile_params)
     respond_to do |format|
-      if @attachinary_file.save
-        format.html { redirect_to @attachinary_file, notice: 'Attachinary_file was successfully created.' }
-        format.json { render :show, status: :created, location: @attachinary_file }
+      if @mannequin.update(mannequin_params)
+
+        format.html { redirect_to mannequin_attachinary_files(@mannequin), notice: 'Attachinaryfile was successfully created.' }
+        format.json { render :show, status: :created, location: mannequin_attachinary_files(@attachinaryfile) }
       else
+        byebug
         format.html { render :new }
-        format.json { render json: @attachinary_file.errors, status: :unprocessable_entity }
+        format.json { render json: @mannequin.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /attachinary_files/1
-  # PATCH/PUT /attachinary_files/1.json
+  # PATCH/PUT /attachinaryfiles/1
+  # PATCH/PUT /attachinaryfiles/1.json
   def update
+    byebug
     respond_to do |format|
-      if @attachinary_file.update(attachinary_file_params)
-        format.html { redirect_to @attachinary_file, notice: 'Attachinary_file was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attachinary_file }
+      if @attachinaryfile.update(attachinaryfile_params)
+        format.html { redirect_to @attachinaryfile, notice: 'Attachinaryfile was successfully updated.' }
+        format.json { render :show, status: :ok, location: @attachinaryfile }
       else
         format.html { render :edit }
-        format.json { render json: @attachinary_file.errors, status: :unprocessable_entity }
+        format.json { render json: @attachinaryfile.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /attachinary_files/1
-  # DELETE /attachinary_files/1.json
+  # DELETE /attachinaryfiles/1
+  # DELETE /attachinaryfiles/1.json
   def destroy
-    @attachinary_file.destroy
+    @attachinaryfile.destroy
     respond_to do |format|
-      format.html { redirect_to attachinary_files_url, notice: 'Attachinary_file was successfully destroyed.' }
+      format.html { redirect_to attachinaryfiles_url, notice: 'Attachinaryfile was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attachinary_file
-      @attachinary_file = Attachinary_file.find(params[:id])
+   # Use callbacks to share common setup or constraints between actions.
+    def set_attachinaryfile
+      @attachinaryfile = AttachinaryFile.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def attachinary_file_params
-      params.require(:attachinary_file).permit(photos: [])#, :scope, :public_id, :version, :width, :height, :format, :resource_type, :created_at, :updated_at)
+    def mannequin_photos
+      params.require(:mannequin) #.permit(photos: [])#, :scope, :public_id, :version, :width, :height, :format, :resource_type, :created_at, :updated_at)
     end
 end

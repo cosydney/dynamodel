@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+
+<h1>Test </h1>
+<% @mannequin.photos.each do |photo| %>
+<%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
 <h1>Listing Photos</h1>
 
 <table>
@@ -10,8 +16,11 @@
   </thead>
 
   <tbody>
-    <% @attachinary_files.each do |attachinary_file| %>
+    <% @attachinaryfiles.each do |attachinary_file| %>
       <tr>
+      <td><%= attachinary_file.photos  %> </td>
+      <%= cl_image_tag attachinary_file.path, width: 300, height: 200, crop: :fill %>
+
         <td><p><strong><%= attachinary_file.description %></strong></p></td>
         <td><%= link_to 'Show', attachinary_file %> ||</td>
         <td><%= link_to 'Edit', edit_attachinary_file_path(attachinary_file) %> ||</td>
@@ -23,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New pictures', new_attachinary_file_path %>
+<%= link_to 'New pictures', new_mannequin_attachinary_file_path %>
