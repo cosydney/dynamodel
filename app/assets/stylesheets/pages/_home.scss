@@ -32,27 +32,3 @@
       margin-top: 15px;
     }
 }
-.btn-banner-search {
-  margin-right: 5px;
-  background: #fff;
-  border: none;
-  color:#4F4F4F;
-  transition: background-color .3s ease;
-}
-.btn-banner-manual {
-  margin-left: 5px;
-  background-color: rgba(220, 220, 220, 0.8);
-  color: #454546;
-  border: none;
-}
-#btn-home{
-  border-radius: 18px;
-  padding: 8px 16px;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-}
-// this one cannot get nested
-#btn-home:hover{
-  background-color: #3B3B3C;
-  color: #FFFFFF;
-}
