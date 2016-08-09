@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-
-=======
-  resources :mannequins
->>>>>>> master
-  devise_for :users
+  devise_for :users,
+          controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
 
   resources :mannequins do
