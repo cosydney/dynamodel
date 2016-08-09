@@ -1,10 +1,10 @@
-class Attachinary_filesController < ApplicationController
+class AttachinaryFilesController < ApplicationController
   before_action :set_attachinary_file, only: [:show, :edit, :update, :destroy]
 
   # GET /attachinary_files
   # GET /attachinary_files.json
   def index
-    @attachinary_files = Attachinary_file.all
+    @attachinary_files = AttachinaryFile.all
   end
 
   # GET /attachinary_files/1
@@ -69,6 +69,6 @@ class Attachinary_filesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachinary_file_params
-      params.require(:attachinary_file).permit(photos: [], :scope, :public_id, :version, :width, :height, :format, :resource_type, :created_at, :updated_at)
+      params.require(:attachinary_file).permit(photos: [])#, :scope, :public_id, :version, :width, :height, :format, :resource_type, :created_at, :updated_at)
     end
 end
