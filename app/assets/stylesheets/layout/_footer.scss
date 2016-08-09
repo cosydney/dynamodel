@@ -1,5 +1,17 @@
 // Your footer style
 
+@media (max-width: 1000px) {
+  #deskopt-footer{
+    display: none;
+  }
+}
+
+@media (min-width: 1000px){
+  #mobile-footer{
+    display:none;
+  }
+}
+
 .footer-container{
   background-color: $brand-color;
 }
