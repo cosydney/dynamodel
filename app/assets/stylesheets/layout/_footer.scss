@@ -5,15 +5,11 @@
 }
 #footer{
   padding: 50px 0px;
-  height: 250px;
+  height: auto;
   p{
     color: white;
     font-size: 14px;
     font-family: 'Source sans pro';
-     &:hover{
-      color: white;
-      opacity: 0.5;
-    }
   }
   h4{
     color: white;
