@@ -5,7 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :mannequin
   has_one :client
-  validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :phone, presence: true, uniqueness: true
 end
