@@ -25,8 +25,7 @@ class MannequinsController < ApplicationController
   # POST /mannequins
   # POST /mannequins.json
   def create
-
-    # current_user.update(user_params)
+    # build a mannequin in the current user with the form params
     @mannequin = current_user.build_mannequin(mannequin_params)
 
     respond_to do |format|
@@ -79,12 +78,13 @@ class MannequinsController < ApplicationController
       params.require(:mannequin).permit(:age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity)
     end
 
+    # user => {first_name: ... , last_name: ... , :phone: ...}
     def user_params
       params.require(:mannequin).permit(user: [:first_name, :last_name, :phone])[:user]
     end
 
     def set_user_after_save_mannequin
-      @mannequin.user.first_name = user_params[:first_name]
+      current_user.first_name = user_params[:first_name]
       current_user.last_name = user_params[:last_name]
       current_user.phone = user_params[:phone]
       current_user.save

@@ -13,7 +13,7 @@
   <tbody>
     <% @mannequins.each do |mannequin| %>
       <tr>
-        <td><p><strong><%= mannequin.user.first_name %></strong></p></td>
+        <td><p><strong><%= mannequin.description %></strong></p></td>
         <td><%= link_to 'Show', mannequin %> ||</td>
         <td><%= link_to 'Edit', edit_mannequin_path(mannequin) %> ||</td>
         <td><%= link_to 'Destroy', mannequin, method: :delete, data: { confirm: 'Are you sure?' } %> ||</td>
