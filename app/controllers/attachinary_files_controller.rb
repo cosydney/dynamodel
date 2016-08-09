@@ -31,10 +31,9 @@ class AttachinaryFilesController < ApplicationController
     respond_to do |format|
       if @mannequin.update(mannequin_params)
 
-        format.html { redirect_to mannequin_attachinary_files(@mannequin), notice: 'Attachinaryfile was successfully created.' }
+        format.html { redirect_to new_mannequin_attachinary_file_path(@mannequin), notice: 'Attachinaryfile was successfully created.' }
         format.json { render :show, status: :created, location: mannequin_attachinary_files(@attachinaryfile) }
       else
-        byebug
         format.html { render :new }
         format.json { render json: @mannequin.errors, status: :unprocessable_entity }
       end
@@ -46,7 +45,7 @@ class AttachinaryFilesController < ApplicationController
   def update
     respond_to do |format|
       if @attachinaryfile.update(attachinaryfile_params)
-        format.html { redirect_to @attachinaryfile, notice: 'Attachinaryfile was successfully updated.' }
+        format.html { redirect_to new_mannequin_attachinary_file_path, notice: 'Attachinaryfile was successfully updated.' }
         format.json { render :show, status: :ok, location: @attachinaryfile }
       else
         format.html { render :edit }

@@ -1,0 +1,20 @@
+.attachinary_container ul {
+    list-style-type: none;
+    li {
+    display: inline;
+    position: relative;
+    }
+}
+.attachinary_container ul li img {
+    margin-top: 15px;
+}
+.attachinary_container ul li a {
+      color: transparent;
+      margin-left: -16px;
+      position: absolute;
+      margin-top: 16px;
+  }
+.attachinary_container ul li a::after {
+      content: "X";
+      color: white;
+}
