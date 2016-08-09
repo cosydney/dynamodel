@@ -1,22 +1,33 @@
-<%= simple_form_for(@mannequin) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @mannequin do |m| %>
 
-  <div class="form-inputs">
-    <%= f.input :age, collection: 18..60, prompt: "Select your age" %>
-    <%= f.input :category %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :height %>
-    <%= f.input :waist %>
-    <%= f.input :chest %>
-    <%= f.input :hips %>
-    <%= f.input :hair_color %>
-    <%= f.input :eyes %>
-    <%= f.input :ethnicity %>
-    <%= f.input :location %>
-  </div>
+    <%= m.error_notification %>
+
+    <div class="form-inputs">
+      <%= m.input :age, collection: 18..60, prompt: "Select your age" %>
+      <%= m.input :category, collection: ["Male", "Female"] %>
+      <%= m.input :description, as: :text %>
+      <%= m.input :height %>
+      <%= m.input :waist %>
+      <%= m.input :chest %>
+      <%= m.input :hips %>
+      <%= m.input :hair_color %>
+      <%= m.input :eyes %>
+      <%= m.input :ethnicity %>
+      <%= m.input :location %>
+    </div>
+
+
+  <%= m.simple_fields_for :user do |u| %>
+    <div class="form-inputs">
+      <%= u.input :first_name, input_html: { value: current_user.first_name } %>
+      <%= u.input :last_name, input_html: { value: current_user.last_name } %>
+      <%= u.input :phone  %>
+      <%= u.label 'Email: ', current_user.email %>
+    </div>
+  <% end %>
 
   <div class="form-actions">
-    <%= f.button :submit, "Save" %>
+    <%= m.button :submit, "Save" %>
   </div>
 <% end %>
 

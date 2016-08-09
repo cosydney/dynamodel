@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Mannequins</h1>
+<h1>Listing Mannequins -> index</h1>
 
 <table>
   <thead>
     <tr>
       <th colspan="3"></th>
+      <h2>Welcome! <%= current_user.first_name %></h2>
     </tr>
   </thead>
 
   <tbody>
     <% @mannequins.each do |mannequin| %>
       <tr>
-        <td><p><strong><%= mannequin.description %></strong></p></td>
+        <td><p><strong><%= mannequin.user.first_name %></strong></p></td>
         <td><%= link_to 'Show', mannequin %> ||</td>
         <td><%= link_to 'Edit', edit_mannequin_path(mannequin) %> ||</td>
         <td><%= link_to 'Destroy', mannequin, method: :delete, data: { confirm: 'Are you sure?' } %> ||</td>

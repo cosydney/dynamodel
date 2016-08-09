@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_one :client
   validates :email, presence: true, uniqueness: true
 
+  # Nested forms
+  accepts_nested_attributes_for :mannequin, :client
+  # Needs to have belongs_to :user in Client and Mannequin models
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

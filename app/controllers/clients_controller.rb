@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:company_name, :website, :user_id) #how to pass user_id
+    params.require(:client).permit(:company_name, :website, :user_id, :first_name, :last_name, :phone, :email) #how to pass user_id
   end
 
 end

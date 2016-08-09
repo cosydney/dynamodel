@@ -14,7 +14,8 @@ class MannequinsController < ApplicationController
 
   # GET /mannequins/new
   def new
-    @mannequin = Mannequin.new
+    # set_current_user it's a variable from a the Divise gem
+    @mannequin = current_user.build_mannequin
   end
 
   # GET /mannequins/1/edit
@@ -24,10 +25,14 @@ class MannequinsController < ApplicationController
   # POST /mannequins
   # POST /mannequins.json
   def create
-    @mannequin = Mannequin.new(mannequin_params)
+
+    # current_user.update(user_params)
+    @mannequin = current_user.build_mannequin(mannequin_params)
 
     respond_to do |format|
       if @mannequin.save
+        set_user_after_save_mannequin
+
         format.html { redirect_to @mannequin, notice: 'Mannequin was successfully created.' }
         format.json { render :show, status: :created, location: @mannequin }
       else
@@ -42,6 +47,8 @@ class MannequinsController < ApplicationController
   def update
     respond_to do |format|
       if @mannequin.update(mannequin_params)
+        set_user_after_save_mannequin
+
         format.html { redirect_to @mannequin, notice: 'Mannequin was successfully updated.' }
         format.json { render :show, status: :ok, location: @mannequin }
       else
@@ -71,4 +78,16 @@ class MannequinsController < ApplicationController
     def mannequin_params
       params.require(:mannequin).permit(:age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity)
     end
+
+    def user_params
+      params.require(:mannequin).permit(user: [:first_name, :last_name, :phone])[:user]
+    end
+
+    def set_user_after_save_mannequin
+      current_user.first_name = user_params[:first_name]
+      current_user.last_name = user_params[:last_name]
+      current_user.phone = user_params[:phone]
+      current_user.save
+    end
+
 end
