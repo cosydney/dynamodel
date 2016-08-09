@@ -2,3 +2,33 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+ .banner {
+  background: center no-repeat;
+  background-size: cover !important;
+  position: relative;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Sans Pro', sans-serif;
+    h1 {
+      font-size: 3.8rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+    a {
+     text-decoration: none;
+    }
+}
+.f500 {
+  font-weight: 500;
+}
+// css copied from dynamodel:
+.banner .banner-content .tutorial {
+  margin: 30px 0;
+    a {
+      margin-top: 15px;
+    }
+}
