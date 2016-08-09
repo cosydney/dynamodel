@@ -4,4 +4,5 @@ class Mannequin < ActiveRecord::Base
   has_many :photo_shootings
   has_many :clients, through: :photo_shootings
   validates :age, presence: true
+  has_attachements :photos
 end

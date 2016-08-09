@@ -4,11 +4,10 @@ Rails.application.routes.draw do
           controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
 
-  resources :mannequins do
-    resources :photos
-  end
+  resources :mannequins
 
   resources :clients, only: [:new, :create, :show, :edit, :update]
+  mount Attachinary::Engine => "/attachinary"
 
 #----------------------------------------ROUTES---------------------------------------------
 #                     Prefix Verb   URI Pattern                                         Controller#Action
