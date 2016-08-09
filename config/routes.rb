@@ -4,7 +4,9 @@ Rails.application.routes.draw do
           controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
 
-  resources :mannequins
+  resources :mannequins  do
+    resources :attachinary_files, :path => "photos"
+  end
 
   resources :clients, only: [:new, :create, :show, :edit, :update]
   mount Attachinary::Engine => "/attachinary"
