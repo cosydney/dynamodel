@@ -1,9 +1,9 @@
 /* Main class */
 .navbar-black {
-  background: white;
+  background: transparent;
   transition: all 0.3s ease;
   display: flex;
-  height: 120px;
+  height: 80px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +28,7 @@
 
 /* Navbar logo */
 .navbar-black-brand img {
-  width: 120px;
+  width: 110px;
   margin-left: 50px;
 }
 
