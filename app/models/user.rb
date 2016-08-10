@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def set_mannequin
-    build_mannequin(first_name: first_name, last_name: last_name) unless mannequin
+    build_mannequin(first_name: '', last_name: '') unless mannequin
   end
   # Nested forms
   # accepts_nested_attributes_for :mannequin, :client

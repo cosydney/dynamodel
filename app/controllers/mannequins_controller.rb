@@ -12,31 +12,9 @@ class MannequinsController < ApplicationController
   def show
   end
 
-  # GET /mannequins/new
-  def new
-    # set_current_user it's a variable from a the Divise gem
-    @mannequin = current_user.build_mannequin
-  end
-
-  # GET /mannequins/1/edit
+  # GET /mannequins/edit
   def edit
-  end
 
-  # POST /mannequins
-  # POST /mannequins.json
-  def create
-    # build a mannequin in the current user with the form params
-    @mannequin = current_user.build_mannequin(mannequin_params)
-
-    respond_to do |format|
-      if @mannequin.save
-        format.html { redirect_to @mannequin, notice: 'Mannequin was successfully created.' }
-        format.json { render :show, status: :created, location: @mannequin }
-      else
-        format.html { render :new }
-        format.json { render json: @mannequin.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /mannequins/1
@@ -54,20 +32,10 @@ class MannequinsController < ApplicationController
     end
   end
 
-  # DELETE /mannequins/1
-  # DELETE /mannequins/1.json
-  def destroy
-    @mannequin.destroy
-    respond_to do |format|
-      format.html { redirect_to mannequins_url, notice: 'Mannequin was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mannequin
-      @mannequin = current_user.mannequin || current_user.build_mannequin
+      @mannequin = current_user.mannequin
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -76,7 +44,6 @@ class MannequinsController < ApplicationController
       params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity, photos: [])
     end
 
-    # user => {first_name: ... , last_name: ... , :phone: ...}
     # def user_params
     #   params.require(:mannequin).permit(user: [:first_name, :last_name])[:user]
     # end
