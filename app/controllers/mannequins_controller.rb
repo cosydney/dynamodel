@@ -10,6 +10,7 @@ class MannequinsController < ApplicationController
   # GET /mannequins/1
   # GET /mannequins/1.json
   def show
+    # this disables the header and footer on this specific pages
     @disable = true
   end
 
