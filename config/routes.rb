@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get :edit
     end
+  end
 
   resources :clients, only: [:new, :create, :show, :edit, :update]
 
