@@ -6,12 +6,17 @@
   <thead>
     <tr>
       <th colspan="3"></th>
-      <h2>Welcome! <strong></strong></h2>
+      <h3>Welcome! <strong><%= current_user.first_name %></strong></h3>
     </tr>
   </thead>
 
   <tbody>
-
+    <p>Total: <%= @mannequins.count %></p>
+    <% @mannequins.each do |m| %>
+    <!-- link_to not working properly -->
+      <p>Mannequin: <%= link_to  "#{m.first_name}", mannequin_path(m) %> <%= m.last_name%> </p>
+      <p>Description: <%= m.description %></p>
+    <% end %>
 
   </tbody>
 </table>
