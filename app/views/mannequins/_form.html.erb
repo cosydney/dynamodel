@@ -3,8 +3,8 @@
     <%= m.error_notification %>
 
     <div class="form-inputs">
-      <%= m.input :first_name, placeholder: "Enter your first name" %>
-      <%= m.input :last_name, placeholder: "Enter your last name" %>
+      <%= m.input :first_name, placeholder:"#{current_user.first_name}" %>
+      <%= m.input :last_name, placeholder:"#{current_user.last_name}" %>
       <%= m.input :phone %>
       <%= m.input :age, collection: 18..60, prompt: "Select your age" %>
       <%= m.input :category, collection: ["Male", "Female"] %>
@@ -17,6 +17,7 @@
       <%= m.input :eyes %>
       <%= m.input :ethnicity %>
       <%= m.input :location %>
+      <%= m.input :photos, as: :attachinary %>
       <%= m.label 'Email: ', current_user.email %>
     </div>
 

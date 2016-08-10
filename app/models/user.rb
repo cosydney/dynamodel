@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def set_mannequin
-    build_mannequin(first_name: ' ', last_name: ' ') unless mannequin
+    build_mannequin(first_name: '', last_name: '') unless mannequin
   end
   # Nested forms
   # accepts_nested_attributes_for :mannequin, :client
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
-    user_params.merge! auth.info.slice(:email)
+    user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
