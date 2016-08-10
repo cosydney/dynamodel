@@ -1,50 +1,96 @@
-<div class="profile-wrapper">
-  <div class="profile-header">
-    <div class="profile-name-description">
-      <div><h1><%= @mannequin.first_name %> <%= @mannequin.last_name %></h1></div>
-      <div class="description"><%= @mannequin.description %></div>
-    </div>
-    <div class="profile-location"><p>Available in <%= @mannequin.location %> <i class="fa fa-map-marker" aria-hidden="true"></i> <i class="fa fa-heart-o" aria-hidden="true"></i></p>
-    </div>
-  </div>
-  <div class="profile-main">
-    <div class="profile-user-info">
-      <ul class="list-unstyled">
-        <li><p><b> Heights</b></p>
-          <p><%= @mannequin.height %></p>
-        </li>
-        <li><p><b> Chest</b></p>
-          <p><%= @mannequin.chest %></p></li>
-          <li><p><b> Waist</b></p>
-            <p><%= @mannequin.waist %></p></li>
-            <li><p><b> Hips</b></p>
-              <p><%= @mannequin.hips %></p>
-            </li>
-            <li><p><b> Hair</b></p>
-              <p><%= @mannequin.hair_color %></p>
-            </li>
-            <li><p><b> Eyes</b></p>
-              <p><%= @mannequin.eyes %></p>
-            </li>
-            <li><p><b> Origins</b></p>
-              <p><%= @mannequin.ethnicity %></p>
-            </li>
-          </ul>
-        </div>
+<div id="deskopt-show">
+  <div class="profile-wrapper">
+    <div class="profile-header">
+      <div class="profile-name-description">
+        <div><h1><%= @mannequin.first_name %> <%= @mannequin.last_name %></h1></div>
+        <div class="description"><%= @mannequin.description %></div>
+      </div>
+      <div class="profile-location"><p>Available in <%= @mannequin.location %> <i class="fa fa-map-marker" aria-hidden="true"></i> <i class="fa fa-heart-o" aria-hidden="true"></i></p>
       </div>
     </div>
+    <div class="profile-main">
+      <div class="profile-user-info">
+        <ul class="list-unstyled">
+          <li><p><b> Heights</b></p>
+            <p><%= @mannequin.height %></p>
+          </li>
+          <li><p><b> Chest</b></p>
+            <p><%= @mannequin.chest %></p></li>
+            <li><p><b> Waist</b></p>
+              <p><%= @mannequin.waist %></p></li>
+              <li><p><b> Hips</b></p>
+                <p><%= @mannequin.hips %></p>
+              </li>
+              <li><p><b> Hair</b></p>
+                <p><%= @mannequin.hair_color %></p>
+              </li>
+              <li><p><b> Eyes</b></p>
+                <p><%= @mannequin.eyes %></p>
+              </li>
+              <li><p><b> Origins</b></p>
+                <p><%= @mannequin.ethnicity %></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-4">
-        <div class="profile-photos">
-          <% @mannequin.photos.each do |photo| %>
-          <%= cl_image_tag photo.path, width: 600, crop: :fill %>
-          <% end %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-4">
+            <div class="profile-photos">
+              <% @mannequin.photos.each do |photo| %>
+              <%= cl_image_tag photo.path, width: 600, crop: :fill %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div id="mobile-show">
+      <div><h1><%= @mannequin.first_name %> <%= @mannequin.last_name %></h1></div>
+      <hr>
+      <div class="profile-location"><p>Available in <%= @mannequin.location %> <i class="fa fa-map-marker" aria-hidden="true"></i> <i class="fa fa-heart-o" aria-hidden="true"></i></p>
+      </div>
+      <hr>
+      <div class="profile-main">
+        <div class="profile-user-info">
+          <div class="list-unstyled">
+            <span><p><b> Heights</b></p>
+              <p><%= @mannequin.height %></p>
+            </span>
+            <span><p><b> Chest</b></p>
+              <p><%= @mannequin.chest %></p></span>
+              <span><p><b> Waist</b></p>
+                <p><%= @mannequin.waist %></p></span>
+                <span><p><b> Hips</b></p>
+                  <p><%= @mannequin.hips %></p>
+                </span>
+                <span><p><b> Hair</b></p>
+                  <p><%= @mannequin.hair_color %></p>
+                </span>
+                <span><p><b> Eyes</b></p>
+                  <p><%= @mannequin.eyes %></p>
+                </span>
+                <span><p><b> Origins</b></p>
+                  <p><%= @mannequin.ethnicity %></p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="profile-photos">
+                  <% @mannequin.photos.each do |photo| %>
+                  <%= cl_image_tag photo.path, width: 600, crop: :fill %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 
