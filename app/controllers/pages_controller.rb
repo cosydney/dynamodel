@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   # It let's the homepage be accsess by not log-in users
   skip_before_action :authenticate_user!, only: :home
   def home
+    @mannequins = Mannequin.all
   end
 end

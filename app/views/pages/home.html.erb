@@ -11,3 +11,9 @@
     </div>
   </div>
 </div>
+
+<div class="display-models">
+  <%= @mannequins.each do |mannequin| %>
+    <%= image_tag mannequin.photo[0] %>
+    <% end %>
+</div>
