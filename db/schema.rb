@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809112141) do
+ActiveRecord::Schema.define(version: 20160810111116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
     t.string   "attachinariable_type"
@@ -57,6 +56,9 @@ ActiveRecord::Schema.define(version: 20160809112141) do
     t.integer  "user_id"
     t.integer  "hips"
     t.string   "location"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
   end
 
   add_index "mannequins", ["user_id"], name: "index_mannequins_on_user_id", using: :btree
@@ -87,7 +89,6 @@ ActiveRecord::Schema.define(version: 20160809112141) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "phone"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"

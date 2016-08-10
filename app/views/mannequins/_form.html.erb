@@ -3,6 +3,9 @@
     <%= m.error_notification %>
 
     <div class="form-inputs">
+      <%= m.input :first_name, placeholder: "Enter your first name" %>
+      <%= m.input :last_name, placeholder: "Enter your last name" %>
+      <%= m.input :phone %>
       <%= m.input :age, collection: 18..60, prompt: "Select your age" %>
       <%= m.input :category, collection: ["Male", "Female"] %>
       <%= m.input :description, as: :text %>
@@ -14,22 +17,13 @@
       <%= m.input :eyes %>
       <%= m.input :ethnicity %>
       <%= m.input :location %>
+      <%= m.label 'Email: ', current_user.email %>
     </div>
-
-
-  <%= m.simple_fields_for :user do |u| %>
-    <div class="form-inputs">
-      <%= u.input :first_name, input_html: { value: current_user.first_name } %>
-      <%= u.input :last_name, input_html: { value: current_user.last_name } %>
-      <%= u.input :phone, input_html: { value: current_user.phone } %>
-      <%= u.label 'Email: ', current_user.email %>
-
-    </div>
-  <% end %>
 
   <div class="form-actions">
     <%= m.button :submit, "Save" %>
   </div>
+
 <% end %>
 
 

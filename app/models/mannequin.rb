@@ -3,6 +3,8 @@ class Mannequin < ActiveRecord::Base
   has_many :attachinary_files, dependent: :destroy
   has_many :photo_shootings
   has_many :clients, through: :photo_shootings
-  validates :age, presence: true
+
+  validates :age, presence: true, on: :update
   has_attachments :photos
+
 end
