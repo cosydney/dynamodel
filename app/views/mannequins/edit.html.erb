@@ -1,6 +1,18 @@
 <h1>Editing Mannequin</h1>
 
-<%= render 'form' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="text-center">
+        <%= render 'form' %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="text-center">
+        <%= render 'attachinary_files/form' %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Show', @mannequin %> |
 <%= link_to 'Back', mannequins_path %>
