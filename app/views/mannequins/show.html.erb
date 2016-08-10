@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+  <p>First name: <%= @mannequin.user.first_name %></p>
+  <p>Last name: <%= @mannequin.user.last_name %></p>
+  <p>Email: <%= @mannequin.user.email %></p>
+  <p>Phone: <%= @mannequin.user.phone %></p>
 
-  <p><%= @mannequin.age %></p>
-  <p><%= @mannequin.category %></p>
-  <p><%= @mannequin.description %></p>
-  <p><%= @mannequin.height %></p>
-  <p><%= @mannequin.waist %></p>
-  <p><%= @mannequin.chest %></p>
-  <p><%= @mannequin.hips %></p>
-  <p><%= @mannequin.hair_color %></p>
-  <p><%= @mannequin.eyes %></p>
-  <p><%= @mannequin.ethnicity %></p>
-  <p><%= @mannequin.location %></p>
+  <p>Age: <%= @mannequin.age %></p>
+  <p>Category: <%= @mannequin.category %></p>
+  <p>Description: <%= @mannequin.description %></p>
+  <p>Height: <%= @mannequin.height %></p>
+  <p>Waist: <%= @mannequin.waist %></p>
+  <p>Chest: <%= @mannequin.chest %></p>
+  <p>Hips: <%= @mannequin.hips %></p>
+  <p>Hair Color: <%= @mannequin.hair_color %></p>
+  <p>Eyes: <%= @mannequin.eyes %></p>
+  <p>Ethnicity: <%= @mannequin.ethnicity %></p>
+  <p>Location: <%= @mannequin.location %></p>
 
 <%= link_to 'Edit', edit_mannequin_path(@mannequin) %> |
 <%= link_to 'Back', mannequins_path %>
 
-<!-- :age, :category, :description, :height, :waist, :chest, :hair_color, :eyes, :ethnicity -->
