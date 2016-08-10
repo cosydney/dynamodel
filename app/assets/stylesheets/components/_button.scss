@@ -22,3 +22,17 @@
   }
 }
 
+.btn-facebook{
+  background-color: #3B5998;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 8px 20px;
+  text-align: center;
+  &:hover{
+    background-color: #4568B2;
+    color: white;
+    text-decoration: none;
+  }
+}
+
