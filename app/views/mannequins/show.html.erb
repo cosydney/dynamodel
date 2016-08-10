@@ -1,21 +1,44 @@
+<div class="profile-wrapper">
+  <div class="profile-header">
+  <div class="profile-name-description">
+      <div><h1><%= @mannequin.first_name %> <%= @mannequin.last_name %></h1></div>
+      <div class="description"><%= @mannequin.description %></div>
+    </div>
+    <div><p>Available in <%= @mannequin.location %> <i class="fa fa-map-marker" aria-hidden="true"></i> <i class="fa fa-heart-o" aria-hidden="true"></i>
+
+</p>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+<br>
 <p id="notice"><%= notice %></p>
 
-  <p>First name: <%= @mannequin.first_name %></p>
-  <p>Last name: <%= @mannequin.last_name %></p>
-  <p>Email: <%= @mannequin.user.email %></p>
-  <p>Phone: <%= @mannequin.phone %></p>
+<p>First name: <%= @mannequin.first_name %></p>
+<p>Last name: <%= @mannequin.last_name %></p>
+<p>Email: <%= @mannequin.user.email %></p>
+<p>Phone: <%= @mannequin.phone %></p>
 
-  <p>Age: <%= @mannequin.age %></p>
-  <p>Category: <%= @mannequin.category %></p>
-  <p>Description: <%= @mannequin.description %></p>
-  <p>Height: <%= @mannequin.height %></p>
-  <p>Waist: <%= @mannequin.waist %></p>
-  <p>Chest: <%= @mannequin.chest %></p>
-  <p>Hips: <%= @mannequin.hips %></p>
-  <p>Hair Color: <%= @mannequin.hair_color %></p>
-  <p>Eyes: <%= @mannequin.eyes %></p>
-  <p>Ethnicity: <%= @mannequin.ethnicity %></p>
-  <p>Location: <%= @mannequin.location %></p>
+<p>Age: <%= @mannequin.age %></p>
+<p>Category: <%= @mannequin.category %></p>
+<p>Description: <%= @mannequin.description %></p>
+<p>Height: <%= @mannequin.height %></p>
+<p>Waist: <%= @mannequin.waist %></p>
+<p>Chest: <%= @mannequin.chest %></p>
+<p>Hips: <%= @mannequin.hips %></p>
+<p>Hair Color: <%= @mannequin.hair_color %></p>
+<p>Eyes: <%= @mannequin.eyes %></p>
+<p>Ethnicity: <%= @mannequin.ethnicity %></p>
+<p>Location: <%= @mannequin.location %></p>
 
 <%= link_to 'Edit', edit_mannequin_path(@mannequin) %> |
 <%= link_to 'Back', mannequins_path %>

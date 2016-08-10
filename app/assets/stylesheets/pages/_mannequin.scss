@@ -1,0 +1,20 @@
+.profile-wrapper{
+  padding: 40px;
+}
+
+.profile-header{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.profile-name-description{
+  display:flex;
+  align-items:baseline;
+}
+
+.description{
+  margin-left: 70px;
+  height: 220px;
+  widght: 90px;
+}
