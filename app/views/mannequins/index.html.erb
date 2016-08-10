@@ -6,14 +6,14 @@
   <thead>
     <tr>
       <th colspan="3"></th>
-      <h2>Welcome! <%= current_user.first_name %></h2>
+      <h2>Welcome! <%= User.find_by_email(current_user[:email]).mannequin.first_name %> <%= User.find_by_email(current_user[:email]).mannequin.last_name %></h2>
     </tr>
   </thead>
 
   <tbody>
     <% @mannequins.each do |mannequin| %>
       <tr>
-        <td><p><strong><%= mannequin.description %></strong></p></td>
+        <td><p><strong><%= mannequin.first_name %></strong></p></td>
         <td><%= link_to 'Show', mannequin %> ||</td>
         <td><%= link_to 'Edit', edit_mannequin_path(mannequin) %> ||</td>
         <td><%= link_to 'Destroy', mannequin, method: :delete, data: { confirm: 'Are you sure?' } %> ||</td>

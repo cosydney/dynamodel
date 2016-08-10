@@ -30,8 +30,6 @@ class MannequinsController < ApplicationController
 
     respond_to do |format|
       if @mannequin.save
-        set_user_after_save_mannequin
-
         format.html { redirect_to @mannequin, notice: 'Mannequin was successfully created.' }
         format.json { render :show, status: :created, location: @mannequin }
       else
@@ -45,7 +43,6 @@ class MannequinsController < ApplicationController
   # PATCH/PUT /mannequins/1.json
   def update
     respond_to do |format|
-      set_user_after_save_mannequin
       if @mannequin.update(mannequin_params)
 
         format.html { redirect_to @mannequin, notice: 'Mannequin was successfully updated.' }
@@ -70,24 +67,26 @@ class MannequinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mannequin
-      @mannequin = Mannequin.find(params[:id])
+      @mannequin = current_user.mannequin || current_user.build_mannequin
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mannequin_params
-      params.require(:mannequin).permit(:age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity)
+      params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity)
     end
 
     # user => {first_name: ... , last_name: ... , :phone: ...}
-    def user_params
-      params.require(:mannequin).permit(user: [:first_name, :last_name, :phone])[:user]
-    end
+    # def user_params
+    #   params.require(:mannequin).permit(user: [:first_name, :last_name])[:user]
+    # end
 
-    def set_user_after_save_mannequin
-      current_user.first_name = user_params[:first_name]
-      current_user.last_name = user_params[:last_name]
-      current_user.phone = user_params[:phone]
-      current_user.save
-    end
+    # def set_user_after_save_mannequin
+    #   current_user.first_name = user_params[:first_name]
+    #   current_user.last_name = user_params[:last_name]
+    #   current_user.phone = user_params[:phone]
+    #   current_user.save
+    # end
+
+    # User: credencials
 
 end

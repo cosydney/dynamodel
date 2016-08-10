@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :mannequins do
+    collection do
+      get :edit
+    end
+
     resources :photos
   end
 
