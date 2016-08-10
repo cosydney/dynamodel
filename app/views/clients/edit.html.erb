@@ -4,17 +4,15 @@
       <h1>Edit your profile</h1>
       <%= simple_form_for(@client) do |f| %>
         <%= f.error_notification %>
-       <!--  <%= f.object.errors.full_messages %> -->
 
-       <!-- change the placeholder to get the company name  -->
-        <p>
-          <%= f.input :company_name%>
-        </p>
+        <div class="form-inputs">
+          <%= f.input :company_name %>
+          <%= f.input :website %>
+        </div>
 
-        <!-- change the placeholder to get the website -->
-        <p>
-        <%= f.input :website%>
-        </p>
+        <div class="form-actions">
+          <%= f.button :submit, "Save" %>
+        </div>
       <% end %>
     </div>
   </div>
