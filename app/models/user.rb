@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def set_mannequin
-    build_mannequin(first_name: '', last_name: '') unless mannequin
+    build_mannequin(first_name: ' ', last_name: ' ') unless mannequin
   end
   # Nested forms
   # accepts_nested_attributes_for :mannequin, :client
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       # When a user logs in, it gets the first_name and last_name to the mannequin
-      user.build_mannequin(auth.info.slice(:first_name, :last_name))
+      # user.build_mannequin(auth.info.slice(:first_name, :last_name))
       user.save
     end
 
