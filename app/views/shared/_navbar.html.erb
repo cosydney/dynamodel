@@ -9,7 +9,7 @@
     <%= link_to "Favourites ", mannequins_path%>
     <%= link_to "Women", mannequins_path%>
     <%= link_to "Men", mannequins_path%>
-    <%= link_to "Join Dyna", mannequins_path%>
+    <%= link_to "Join Dyna", new_user_registration_path %>
     <%= link_to "Contact", mannequins_path%>
 
     <!-- Different navigation if login or not -->
@@ -60,7 +60,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-black-item navbar-black-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
 
     <% end %>
   </div>
