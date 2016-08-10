@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :mannequins do
-    resources :photos
+  resources :mannequins  do
+    resources :attachinary_files, :path => "photos"
   end
 
   resources :clients, only: [:new, :create, :show, :edit, :update]
+  mount Attachinary::Engine => "/attachinary"
 
 #----------------------------------------ROUTES---------------------------------------------
 #                     Prefix Verb   URI Pattern                                         Controller#Action

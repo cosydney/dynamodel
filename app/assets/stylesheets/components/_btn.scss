@@ -1,0 +1,50 @@
+
+.btn-yellow{
+  background-color: $yellow;
+  border-radius: 35px;
+  border: solid 1px $yellow;
+  transition: all 0.2s ease;
+  padding: 8px 30px;
+  color: whitesmoke;
+  &:hover{
+  background-color: whitesmoke;
+  padding: 8px 31px;
+  color: $yellow;
+  font-weight: bold;
+}
+}
+
+.btn-blue{
+  background-color: $blue;
+  border-radius: 35px;
+  border: solid 1px $blue;
+  transition: all 0.2s ease;
+  padding: 8px 30px;
+  color: whitesmoke;
+  &:hover{
+  background-color: whitesmoke;
+  padding: 8px 31px;
+  color: $blue;
+  font-weight: bold;
+}
+}
+
+.btn-delete{
+  background-color: #07beb8;
+  border-radius: 35px;
+  margin-top: 4px;
+  border: solid 1px #07beb8;
+  transition: all 0.2s ease;
+  padding: 4px 15px;
+  color: white;
+
+  &:hover{
+    background-color: white;
+    border-radius: 35px;
+    padding: 4px 15px;
+    border: solid 1px #3b3b3c;
+    color: #3b3b3c;
+    font-weight: bold;
+  }
+}
+
