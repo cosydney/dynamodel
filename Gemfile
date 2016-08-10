@@ -17,6 +17,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
+# Cloudinary and photos stuff
+gem 'cloudinary'
+gem 'attachinary'
+gem "jquery-fileupload-rails"
+gem "coffee-rails"
 
 
 group :development, :test do

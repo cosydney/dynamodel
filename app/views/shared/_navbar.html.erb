@@ -1,25 +1,22 @@
-<div class="navbar-wagon">
+<div class="navbar-black">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= link_to root_path, class: "navbar-black-brand brand-xs" do %>
+    <%= image_tag "dynamodel-black.png" %>
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+  <div class="navbar-black-right hidden-xs hidden-sm">
+    <%= link_to "Favourites ", mannequins_path%>
+    <%= link_to "Women", mannequins_path%>
+    <%= link_to "Men", mannequins_path%>
+    <%= link_to "Join Dyna", mannequins_path%>
+    <%= link_to "Contact", mannequins_path%>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <%= link_to "#", class: "navbar-black-item navbar-black-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-blue">3</div>
@@ -27,23 +24,28 @@
       <% end %>
 
       <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
+      <div class="navbar-black-item">
         <div class="dropdown">
           <% if user_signed_in? && current_user.facebook_picture_url %>
-          <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: " navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: " navbar-black-menu", "data-toggle" => "dropdown" %>
           <% else  %>
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id:"navbar-black-menu", "data-toggle" => "dropdown" %>
           <% end %>
 
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-right navbar-black-dropdown-menu">
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to "/" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "/users/edit" do %>
+                <i class="fa fa-cog"></i>  <%= t(".profile", default: "Settings") %>
               <% end %>
             </li>
             <li>
@@ -58,22 +60,21 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-black-item navbar-black-link" %>
 
     <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-black-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+      <ul class="dropdown-menu dropdown-menu-right navbar-black-dropdown-menu">
+        <li><a href="#">Favourites</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">How to use</a></li>
       </ul>
     </div>
   </div>

@@ -72,7 +72,8 @@ class MannequinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mannequin_params
-      params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity)
+      # here the photos need to be at the end for some mystic reasons
+      params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity, photos: [])
     end
 
     # user => {first_name: ... , last_name: ... , :phone: ...}
