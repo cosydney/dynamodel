@@ -12,10 +12,10 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' unless @disable %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer' unless @disable %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
   </body>

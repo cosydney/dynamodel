@@ -10,6 +10,7 @@ class MannequinsController < ApplicationController
   # GET /mannequins/1
   # GET /mannequins/1.json
   def show
+    @disable = true
   end
 
   # GET /mannequins/new
