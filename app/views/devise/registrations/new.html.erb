@@ -1,9 +1,9 @@
 <div class="background" <div class="banner" style="background-image: url(<%= image_path 'landing-bg.jpg' %>);">
   <div class="text-center">
     <h1>Joyn Dyna Model</h1>
-    <p>I have no clue what Sydney wants me to write here</p>
-    <p>But I surely hope you enjoy the Dyna experience</p>
-    <br>
+    <p> Dyna Model is an online platform dedicated </p>
+    <p> to models. In Dyna you can get noticed by </p>
+    <p> casting directors and designes</p>
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -13,13 +13,13 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
-              <%= f.input :email, required: true, autofocus: true, placeholder: "dyna@mail.com" %>
+              <%= f.input :email, required: true, autofocus: true %>
               <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
               <%= f.input :password_confirmation, required: true %>
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "Sign up" %>
+              <%= f.button :submit, "Sign up", :class => "btn-gray btn-base text-uppercase" %>
             </div>
           <% end %>
 
