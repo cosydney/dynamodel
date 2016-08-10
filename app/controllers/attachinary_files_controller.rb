@@ -1,3 +1,6 @@
+# Need a controller to have a separate page for photos
+# What we did here is to set up the mannequin to know which mannequin we assigned the pictures to
+
 class AttachinaryFilesController < ApplicationController
   before_action :set_attachinaryfile, only: [:show, :edit, :update, :destroy]
 

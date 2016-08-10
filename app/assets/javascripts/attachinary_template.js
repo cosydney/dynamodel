@@ -1,3 +1,5 @@
+// Template when photos are uploaded took it from https://github.com/assembler/attachinary/issues/69#issuecomment-238634366
+
 $.attachinary.config.template = '\
   <ul>\
     <% for(var i=0; i<files.length; i++){ %>\
