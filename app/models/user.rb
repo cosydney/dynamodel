@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   before_validation :set_mannequin
   validates :email, presence: true, uniqueness: true
+  validates :mannequin, presence: true
 
   def set_mannequin
     build_mannequin(first_name: '', last_name: '') unless mannequin
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       # When a user logs in, it gets the first_name and last_name to the mannequin
-      user.build_mannequin(auth.info.slice(:first_name, :last_name))
+      user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
       user.save
     end
 
