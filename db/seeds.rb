@@ -38,7 +38,15 @@ photos = [{
   width: 1280,
   height: 1280,
   format: "jpg",
+  resource_type: "image"},
+     {
+  public_id: "zvl5rllp0urluh25orjd",
+  version: "1470842806",
+  width: 1280,
+  height: 846,
+  format: "jpg",
   resource_type: "image"}
+
 
 ]
 
