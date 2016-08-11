@@ -10,16 +10,14 @@ class User < ActiveRecord::Base
   before_validation :set_mannequin
   validates :email, presence: true, uniqueness: true
 
+  #before the validation of the user, build a mannequin with empty first_name and last_name
   def set_mannequin
     build_mannequin(first_name: '', last_name: '') unless mannequin
   end
-  # Nested forms
-  # accepts_nested_attributes_for :mannequin, :client
-  # Needs to have belongs_to :user in Client and Mannequin models
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
-    # Take out the :first_name and :last_name
+    # Get from facebook the email
     user_params.merge! auth.info.slice(:email)
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
@@ -32,7 +30,7 @@ class User < ActiveRecord::Base
     else
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
-      # When a user logs in, it gets the first_name and last_name to the mannequin
+      # When a user logs in, it gets the first_name and last_name (from facebook) to the mannequin
       user.build_mannequin(auth.info.slice(:first_name, :last_name))
       user.save
     end
