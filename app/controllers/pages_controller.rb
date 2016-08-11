@@ -1,7 +1,20 @@
+# for randoms http://stackoverflow.com/questions/2752231/random-record-in-activerecord
+
 class PagesController < ApplicationController
   # overades the default action of divise (authentificate user)
   # It let's the homepage be accsess by not log-in users
   skip_before_action :authenticate_user!, only: :home
+
   def home
+    @hautecouture = findbycategory("haute-couture")
+    @beaute = findbycategory("beaute")
+    @atypique = findbycategory("atypique")
+    @newface = findbycategory("newface")
   end
+
+
+  def findbycategory(category)
+    Mannequin.where(category: category).limit(4)
+  end
+
 end

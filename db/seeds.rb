@@ -11,7 +11,7 @@ category = %w(beaute haute-couture atypique new-face)
 ethnicity = %w(caucasian asian black american francais)
 
 
-3.times do
+30.times do
 mannequin = Mannequin.new(
     age: Faker::Number.number(2),
     category: category.sample,
