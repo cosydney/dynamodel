@@ -9,7 +9,7 @@ require "faker"
 
 category = %w(beaute haute-couture atypique new-face)
 ethnicity = %w(caucasian asian black american francais)
-
+gender = [:men, :women]
 
 30.times do
 mannequin = Mannequin.new(
@@ -27,6 +27,7 @@ mannequin = Mannequin.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone:Faker::Number.number(10),
+    gender: gender.sample,
   )
 
 mannequin.photos.build(
