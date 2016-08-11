@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   #before the validation of the user, build a profile (cleint or mannequin)
   #with empty first_name and last_name
   def set_profile
-    # return if mannequin || client
+    return if mannequin || client
     if is_client
       build_client unless client
     else
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.find_for_facebook_oauth(auth)
+  def self.find_for_facebook_oauth(auth, is_client = false)
     user_params = auth.to_h.slice(:provider, :uid)
     # Get from facebook the email
     user_params.merge! auth.info.slice(:email)
@@ -37,14 +37,19 @@ class User < ActiveRecord::Base
     if user
       user.update(user_params)
     else
+      byebug
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
 
       # When a user logs in, it gets the first_name and last_name to the mannequin
-      user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
-      # user.build_client(auth.info.slice(:first_name, :last_name).to_h)
-      user.set_profile
+      if is_client == "true"
+        user.build_client(auth.info.slice(:first_name, :last_name).to_h)
+      else
+        user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
+      end
+      byebug
       user.save
+
     end
 
     return user
