@@ -1,24 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-
-<div class="index-wrapper">
-  <h1> Men </h1>
-  <br>
-  <p>Results: (<%= @men.count %>)</p>
-  <div class="container">
-    <div class="row">
-      <% @men.each do |m| %>
-        <div class="col-sm-6 col-md-3">
-          <div class="mannequin-card">
-          <!-- link_to not working properly -->
-          <p><%= link_to mannequin_path(m) do %>
-            <%= cl_image_tag m.photos[0].path, width: 200, height: 200, crop: :fill %>
-            <div> <%= "#{m.first_name + " " + m.last_name[0] + "."}" %> </div>
-            <% end %>
-          </div>
-        </p>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<!-- did a partial for that  -->
+<%= render partial: 'listingModels', locals: { gender: @men }  %>
