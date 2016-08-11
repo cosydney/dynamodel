@@ -2,24 +2,26 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_one :mannequin
   has_one :client
 
   before_validation :set_profile
   validates :email, presence: true, uniqueness: true
-  validates :mannequin, presence: true
+  #validation of either the client if is_client true, or of mannequin
+  validates :mannequin, presence: true, unless: :is_client
+  validates :client, presence: true, if: :is_client
 
   #before the validation of the user, build a profile (cleint or mannequin)
   #with empty first_name and last_name
   def set_profile
-    return if mannequin || client
-    raise
-
-    # if client == true
-
-    build_mannequin(first_name: '', last_name: '') unless mannequin
+    # return if mannequin || client
+    if is_client
+      build_client unless client
+    else
+      build_mannequin(first_name: "", last_name:"") unless mannequin
+    end
   end
 
   def self.find_for_facebook_oauth(auth)
@@ -37,9 +39,11 @@ class User < ActiveRecord::Base
     else
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
+
       # When a user logs in, it gets the first_name and last_name to the mannequin
       user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
-
+      # user.build_client(auth.info.slice(:first_name, :last_name).to_h)
+      user.set_profile
       user.save
     end
 

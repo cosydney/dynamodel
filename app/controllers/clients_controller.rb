@@ -1,26 +1,26 @@
 class ClientsController < ApplicationController
 
-  before_action :find_client, only: [:edit, :show]
-  before_action :set_client, only: [:update, :create]
+  # before_action :find_client, only: [:edit, :show]
+  before_action :set_client, only: [:show, :edit, :update]
 
   def show
   end
 
-  def new
-    @client = Client.new
-  end
+  # def new
+  #   @client = Client.new
+  # end
 
-  def create
+  # def create
 
-    if @client.save
-      redirect_to client_path(@client)
-    else
-      render :new
-    end
-  end
+  #   if @client.save
+  #     redirect_to client_path(@client)
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def edit
-    @client = Client.new
+    # @client = Client.new
   end
 
   def update
@@ -35,7 +35,8 @@ class ClientsController < ApplicationController
   private
 
   def set_client
-    @client = Client.new(client_params)
+    # @client = Client.new(client_params)
+    @client = current_user.client
   end
 
   def find_client
@@ -43,7 +44,7 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:company_name, :website, :user_id, :first_name, :last_name, :phone, :email) #how to pass user_id
+    params.require(:client).permit(:company_name, :website, :first_name, :last_name, :phone, :email) #how to pass user_id
   end
 
 end
