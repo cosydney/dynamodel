@@ -2,6 +2,12 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+#blogrow img{
+  width: 200px;
+  margin-bottom: 30px;
+}
+
  hr{
   margin: 22px 200px;
  }
@@ -35,3 +41,4 @@
       margin-top: 15px;
     }
 }
+
