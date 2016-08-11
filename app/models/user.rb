@@ -7,12 +7,18 @@ class User < ActiveRecord::Base
   has_one :mannequin
   has_one :client
 
-  before_validation :set_mannequin
+  before_validation :set_profile
   validates :email, presence: true, uniqueness: true
   validates :mannequin, presence: true
 
-  #before the validation of the user, build a mannequin with empty first_name and last_name
-  def set_mannequin
+  #before the validation of the user, build a profile (cleint or mannequin)
+  #with empty first_name and last_name
+  def set_profile
+    return if mannequin || client
+    raise
+
+    # if client == true
+
     build_mannequin(first_name: '', last_name: '') unless mannequin
   end
 
