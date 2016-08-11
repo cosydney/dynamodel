@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @hautecouture = findbycategory("haute-couture")
     @beaute = findbycategory("beaute")
     @atypique = findbycategory("atypique")
-    @newface = findbycategory("newface")
+    @newface = findbycategory("new-face")
   end
 
 

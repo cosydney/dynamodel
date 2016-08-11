@@ -16,10 +16,10 @@
 
 <!-- categories -->
 
-<%= render 'category', object: @hautecouture %>
-<%= render 'category', object: @beaute %>
-<%= render 'category', object: @atypique %>
-<%= render 'category', object: @newface %>
+<%= render partial: 'category', locals: { category: @hautecouture }  %>
+<%= render partial: 'category', locals: { category: @beaute}  %>
+<%= render partial: 'category', locals: { category: @atypique}  %>
+<%= render partial: 'category', locals: { category: @newface}  %>
 
 
 <!-- blog -->
