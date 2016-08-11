@@ -17,4 +17,6 @@ class PagesController < ApplicationController
     Mannequin.where(category: category).limit(4)
   end
 
+
+
 end
