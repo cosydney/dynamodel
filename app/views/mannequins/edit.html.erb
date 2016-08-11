@@ -1,25 +1,52 @@
-<h1>Editing Mannequin</h1>
-<br>
+<h1><%= current_user.mannequin.first_name %></h1>
 
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-2 col-xs-offset-5">
-      <button class="btn btn-base"><%= link_to 'Profile', mannequin_path(current_user.mannequin), target: "_blank" %></button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="text-center">
-        <%= render 'form' %>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-5 text-center">
+        <button class="btn btn-base"><%= link_to 'Profile', mannequin_path(current_user.mannequin), target: "_blank" %></button>
       </div>
     </div>
-    <div class="col-xs-6">
-      <div class="text-center">
-        <%= render 'attachinary_files/form' %>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="text-center">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title text-center">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+           aria-expanded="true" aria-controls="collapseOne">
+          Info
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <%= render 'form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="text-center">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title text-center">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Photos
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <%= render 'attachinary_files/form' %>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <%= link_to 'Back', mannequins_path %>
+
+
+
+

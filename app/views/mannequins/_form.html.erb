@@ -1,5 +1,6 @@
 <!-- add url for the update, so that the update targets the correct place -->
-<%= simple_form_for current_user.mannequin, url: '/mannequin' do |m| %>
+
+  <%= simple_form_for current_user.mannequin, url: '/mannequin' do |m| %>
 
     <%= m.error_notification %>
 
@@ -10,7 +11,7 @@
       <%= m.input :age, collection: 18..60, prompt: "Select your age" %>
       <%= m.input :category, collection: ["Male", "Female"] %>
       <%= m.input :description, as: :text %>
-      <%= m.input :height %>
+      <%= m.input :height, hint: 'You cannot change your username.' %>
       <%= m.input :waist %>
       <%= m.input :chest %>
       <%= m.input :hips %>
@@ -22,9 +23,12 @@
     </div>
 
   <div class="form-actions">
-    <%= m.button :submit, "Save" %>
+    <%= m.button :submit, "Save", class: "btn-yellow"%>
   </div>
-
 <% end %>
+
+
+
+
 
 
