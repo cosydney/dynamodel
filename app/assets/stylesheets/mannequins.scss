@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*Whole form: */
 .edit_mannequin {
   padding: 40px;
   color: #3B3B3C;
@@ -10,6 +11,24 @@
   /*font-family: */
 }
 
+/*top of each pannel: */
 .panel-heading {
-  color:blue;
+  color:#3B3B3C !important;
+  background-color: #F0F1F1 !important;
+  border-bottom: none !important;
+  border-radius: 3px !important;
+
+    &:hover {
+      text-decoration: none !important;
+    }
+    a {
+      font-weight: lighter;
+      text-decoration: none !important;
+    }
+}
+
+/*email at the bottom: */
+.form-mannequin-email {
+  color: lightgreen;
+  font-weight: lighter;
 }

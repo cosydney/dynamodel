@@ -19,12 +19,13 @@
       <%= m.input :eyes %>
       <%= m.input :ethnicity %>
       <%= m.input :location %>
-      <%= m.label 'Email: ', current_user.email %>
+      <%= m.label 'Email: ', current_user.email, class: "form-mannequin-email" %>
     </div>
 
   <div class="form-actions">
-    <%= m.button :submit, "Save", class: "btn-yellow"%>
+    <%= m.button :submit, "Save", class: "btn btn-treehouse", style: "margin-top: 20px;" %>
   </div>
+
 <% end %>
 
 

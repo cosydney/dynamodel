@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-2 col-xs-offset-5 text-center">
-        <button class="btn btn-base"><%= link_to 'Profile', mannequin_path(current_user.mannequin), target: "_blank" %></button>
+        <button class="btn-profile btn-medium"><%= link_to 'Profile', mannequin_path(current_user.mannequin), target: "_blank", style: "text-decoration: none; color: white;" %></button>
       </div>
     </div>
     <div class="row">
@@ -45,7 +45,14 @@
     </div>
   </div>
 </div>
-<%= link_to 'Back', mannequins_path %>
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-5">
+    <div class="text-center">
+      <button class="btn-medium" style="margin-bottom: 20px;"><%= link_to 'Back', mannequins_path, style: "text-decoration: none; color: white" %></button>
+    </div>
+  </div>
+</div>
+
 
 
 

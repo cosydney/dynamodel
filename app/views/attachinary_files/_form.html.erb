@@ -1,7 +1,7 @@
 <!-- add url for the update, so that the update targets the correct place -->
 <%= simple_form_for current_user.mannequin, url: '/mannequin' do |f| %>
 
-  <%= f.input :photos, as: :attachinary, class: "btn-yellow" %>
-  <%= f.submit 'Update my photos', class: "btn-yellow" %>
+  <%= f.input :photos, as: :attachinary %>
+  <%= f.submit "Update", class: "btn btn-treehouse" %>
 <% end %>
 
