@@ -1,10 +1,11 @@
-<%= simple_form_for @mannequin do |m| %>
+<!-- add url for the update, so that the update targets the correct place -->
+<%= simple_form_for current_user.mannequin, url: '/mannequin' do |m| %>
 
     <%= m.error_notification %>
 
     <div class="form-inputs">
-      <%= m.input :first_name, placeholder:"#{current_user.first_name}" %>
-      <%= m.input :last_name, placeholder:"#{current_user.last_name}" %>
+      <%= m.input :first_name, placeholder: "Enter your name: " %>
+      <%= m.input :last_name, placeholder:"last name: " %>
       <%= m.input :phone %>
       <%= m.input :age, collection: 18..60, prompt: "Select your age" %>
       <%= m.input :category, collection: ["Male", "Female"] %>
