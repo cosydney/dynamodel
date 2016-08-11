@@ -5,7 +5,7 @@
 
 
 .index-wrapper{
-  margin: 30px;
+  margin: 30px 80px;
   a{
     color: $brand-color;
     &:hover{
@@ -24,4 +24,6 @@
 
 .mannequin-card{
   margin-bottom: 35px;
+  width:auto;
+  margin-right: -30px;
 }
