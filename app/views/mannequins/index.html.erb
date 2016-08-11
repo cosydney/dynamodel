@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Mannequins -> index</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-      <h3>Welcome! <strong><%= current_user.first_name %></strong></h3>
-    </tr>
-  </thead>
-
-  <tbody>
-    <p>Total: <%= @mannequins.count %></p>
-    <% @mannequins.each do |m| %>
-    <!-- link_to not working properly -->
-      <p>Mannequin: <%= link_to  "#{m.first_name}", mannequin_path(m) %> <%= m.last_name%> </p>
-      <p>Description: <%= m.description %></p>
-    <% end %>
-
-  </tbody>
-</table>
-
+<div class="index-wrapper">
+  <h1>Listing Mannequins </h1>
+  <p>Number of models: <%= @mannequins.count %></p>
+  <div class="container">
+    <div class="row">
+      <% @mannequins.each do |m| %>
+        <div class="col-sm-6 col-md-3">
+          <div class="mannequin-card">
+          <!-- link_to not working properly -->
+          <p><%= link_to mannequin_path(m) do %>
+            <%= cl_image_tag m.photos[0].path, width: 200, height: 200, crop: :fill %>
+            <div> <%= "#{m.first_name + " " + m.last_name[0] + "."}" %> </div>
+            <% end %>
+          </div>
+        </p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

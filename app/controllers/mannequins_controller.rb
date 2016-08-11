@@ -1,5 +1,7 @@
 class MannequinsController < ApplicationController
-  before_action :set_mannequin, only: [:show, :edit, :update, :destroy]
+  before_action :set_mannequin, only: [:edit, :update, :destroy]
+  # A visitor can view each mannequin's profile
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   # GET /mannequins
   # GET /mannequins.json
@@ -10,13 +12,13 @@ class MannequinsController < ApplicationController
   # GET /mannequins/1
   # GET /mannequins/1.json
   def show
+    @mannequin = Mannequin.find(params[:id])
     # this disables the header and footer on this specific pages
     @disable = true
   end
 
   # GET /mannequins/edit
   def edit
-
   end
 
   # PATCH/PUT /mannequins/1
@@ -46,17 +48,5 @@ class MannequinsController < ApplicationController
       params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity, photos: [])
     end
 
-    # def user_params
-    #   params.require(:mannequin).permit(user: [:first_name, :last_name])[:user]
-    # end
-
-    # def set_user_after_save_mannequin
-    #   current_user.first_name = user_params[:first_name]
-    #   current_user.last_name = user_params[:last_name]
-    #   current_user.phone = user_params[:phone]
-    #   current_user.save
-    # end
-
-    # User: credencials
 
 end
