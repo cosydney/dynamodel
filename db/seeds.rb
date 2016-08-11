@@ -11,6 +11,37 @@ category = %w(beaute haute-couture atypique new-face)
 ethnicity = %w(caucasian asian black american francais)
 gender = [:men, :women]
 
+photos = [{
+  public_id: "zcfijxxqikiskuapqzjz",
+  version: "1470843624",
+  width: 1280,
+  height: 936,
+  format: "jpg",
+  resource_type: "image"},
+  {
+  public_id: "pgl5tbyffpxgzy3egk8o",
+  version: "1470913507",
+  width: 532,
+  height: 800,
+  format: "jpg",
+  resource_type: "image"},
+    {
+  public_id: "o4rh0zhxilm0fcqudlpw",
+  version: "1470842809",
+  width: 850,
+  height: 1280,
+  format: "jpg",
+  resource_type: "image"},
+   {
+  public_id: "blxw0zenzdl61ivvwirf",
+  version: "1470825774",
+  width: 1280,
+  height: 1280,
+  format: "jpg",
+  resource_type: "image"}
+
+]
+
 30.times do
 mannequin = Mannequin.new(
     age: Faker::Number.number(2),
@@ -31,12 +62,7 @@ mannequin = Mannequin.new(
   )
 
 mannequin.photos.build(
-  public_id: "zcfijxxqikiskuapqzjz",
-  version: "1470843624",
-  width: 1280,
-  height: 936,
-  format: "jpg",
-  resource_type: "image",
+  photos.sample
   )
 
 mannequin.save
