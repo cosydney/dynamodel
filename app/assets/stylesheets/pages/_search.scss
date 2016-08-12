@@ -1,0 +1,22 @@
+.search-box{
+  width: auto;
+  height: auto;
+  background-color: $gray-lighter;
+  margin: 40px 10px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#btn-search{
+margin-right: 70px;
+}
+
+.search-box span{
+  display: inline;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+.simple_form.search .control-label {
+  display: block;
+}

@@ -11,12 +11,17 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   # validation of either the client if is_client true, or of mannequin
-  # validates :mannequin, presence: true, unless: :should_confirm?
-  # validates :client, presence: true, if: :should_confirm?
+  validate :user_mannequin_or_client_validation
 
-  # method to set is_client boolean val of is_client = "true" (note is a string)
-  def should_confirm?
-    is_client == "true" # Value of the hidden field as set in the form
+  def user_mannequin_or_client_validation
+    puts is_client
+    puts mannequin
+    #if the user is not a client then the user needs a manequinn
+    if !is_client && !mannequin
+      errors.add(:base, "Can not create profile")
+    elsif is_client && !client
+      errors.add(:base, "Can not create profile")
+    end
   end
 
   #before the validation of the user, build a profile (client or mannequin)
