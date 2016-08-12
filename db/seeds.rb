@@ -9,41 +9,43 @@ require "faker"
 
 category = %w(beaute haute-couture atypique new-face)
 ethnicity = %w(caucasian asian black american francais)
+hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
+
 gender = [:men, :women]
 
 photos = [{
-  public_id: "zcfijxxqikiskuapqzjz",
-  version: "1470843624",
-  width: 1280,
-  height: 936,
-  format: "jpg",
-  resource_type: "image"},
-  {
-  public_id: "pgl5tbyffpxgzy3egk8o",
-  version: "1470913507",
+  public_id: "houbuztjdrds9cvdqbva",
+  version: "1470936078",
   width: 532,
   height: 800,
   format: "jpg",
   resource_type: "image"},
+  {
+  public_id: "qo4fb58vxntmpehyw1nx",
+  version: "1470845693",
+  width: 1384,
+  height: 1080,
+  format: "jpg",
+  resource_type: "image"},
     {
-  public_id: "o4rh0zhxilm0fcqudlpw",
-  version: "1470842809",
-  width: 850,
-  height: 1280,
+  public_id: "dj2gqn7ssrs7snlxnqks",
+  version: "1470842816",
+  width: 1280,
+  height: 852,
   format: "jpg",
   resource_type: "image"},
    {
-  public_id: "blxw0zenzdl61ivvwirf",
-  version: "1470825774",
+  public_id: "o6z9wdubc1n31fbjkbjy",
+  version: "1470842779",
   width: 1280,
-  height: 1280,
+  height: 853,
   format: "jpg",
   resource_type: "image"},
      {
-  public_id: "zvl5rllp0urluh25orjd",
-  version: "1470842806",
-  width: 1280,
-  height: 846,
+  public_id: "x6eqe1nmkh23mrdrinpp",
+  version: "1470825768",
+  width: 640,
+  height: 640,
   format: "jpg",
   resource_type: "image"}
 
@@ -58,7 +60,7 @@ mannequin = Mannequin.new(
     height: Faker::Number.number(2),
     chest: Faker::Number.number(2),
     waist: Faker::Number.number(2),
-    hair_color: Faker::Color.color_name,
+    hair_color: hair_color.sample,
     eyes: Faker::Color.color_name,
     ethnicity: ethnicity.sample,
     hips: Faker::Number.number(2),
