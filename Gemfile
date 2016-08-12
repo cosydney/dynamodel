@@ -33,7 +33,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
 
+  gem "coffee-rails"
+  gem "gmaps4rails"
 
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 end
 
