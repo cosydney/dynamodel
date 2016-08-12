@@ -3,7 +3,7 @@
 class PagesController < ApplicationController
   # overades the default action of divise (authentificate user)
   # It let's the homepage be accsess by not log-in users
-  skip_before_action :authenticate_user!, only: [:home, :women, :men, :contact]
+  skip_before_action :authenticate_user!, only: [:home, :women, :men, :contact, :search]
 
   def home
     @hautecouture = findbycategory("haute-couture")

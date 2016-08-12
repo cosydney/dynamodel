@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class="index-wrapper">
-  <h1> <%= gender[0].gender.capitalize %> </h1>
+  <h1> Search </h1>
   <br>
-  <p>Results: (<%= gender.count %>)</p>
+  <p>Results: (<%= @mannequin.count %>)</p>
   <div class="container">
     <div class="row">
-      <% gender.each do |m| %>
+      <% @mannequin.each do |m| %>
         <div class="col-sm-6 col-md-3">
           <div class="mannequin-card">
           <!-- link_to not working properly -->
