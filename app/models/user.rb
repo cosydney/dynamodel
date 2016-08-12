@@ -2,21 +2,35 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_one :mannequin
   has_one :client
 
-  before_validation :set_mannequin
+  before_validation :set_profile
   validates :email, presence: true, uniqueness: true
-  validates :mannequin, presence: true
 
-  #before the validation of the user, build a mannequin with empty first_name and last_name
-  def set_mannequin
-    build_mannequin(first_name: '', last_name: '') unless mannequin
+  # validation of either the client if is_client true, or of mannequin
+  # validates :mannequin, presence: true, unless: :should_confirm?
+  # validates :client, presence: true, if: :should_confirm?
+
+  # method to set is_client boolean val of is_client = "true" (note is a string)
+  def should_confirm?
+    is_client == "true" # Value of the hidden field as set in the form
   end
 
-  def self.find_for_facebook_oauth(auth)
+  #before the validation of the user, build a profile (client or mannequin)
+  #with empty first_name and last_name
+  def set_profile
+    return if mannequin || client
+    if is_client
+      build_client unless client
+    else
+      build_mannequin(first_name: "", last_name:"") unless mannequin
+    end
+  end
+
+  def self.find_for_facebook_oauth(auth, is_client = false)
     user_params = auth.to_h.slice(:provider, :uid)
     # Get from facebook the email
     user_params.merge! auth.info.slice(:email)
@@ -31,14 +45,18 @@ class User < ActiveRecord::Base
     else
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
+
       # When a user logs in, it gets the first_name and last_name to the mannequin
-      user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
+      if is_client == "true"
+        user.build_client(auth.info.slice(:first_name, :last_name).to_h)
+      else
+        user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
+      end
 
       user.save
-    end
 
+    end
     return user
   end
-
 
 end
