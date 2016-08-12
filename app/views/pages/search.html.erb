@@ -1,14 +1,38 @@
+hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
 <p id="notice"><%= notice %></p>
 
 <div class="index-wrapper">
-  <h1> Search </h1>
+  <h1> Mannequin </h1>
   <br>
-  <p>Results: (<%= @mannequin.count %>)</p>
+  <div class="container">
+    <div class="search-box">
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-xs-12 col-md-6">
+            <%= simple_form_for :search, method: "get", url: page_mannequin_path do |m| %>
+            <%= m.error_notification %>
+            <%= m.input :gender, collection: ["men", "women"], prompt: "Select your gender", as: :check_boxes %>
+           <%= m.input :hair_color, collection: hair_color, prompt: "Select your hair color", as: :check_boxes %>
+<!--              <%= m.input :ethnicity, collection: ["Caucasian", "Asian", "African", "Hispanic", "Metisse"], prompt: "Select your Ethnicity", as: :check_boxes %>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <%= m.input :age, placeholder: "maximum age" %>
+            <%= m.input :category, collection: ["beaute", "haute-couture", "atypique", "new-face", "hipster"], prompt: "Select your category", as: :check_boxes %> -->
+            <%= m.button :submit, "Search", class: "btn btn-treehouse", style: "margin-top: 20px;", as: :check_boxes %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><strong>Results:</strong>(<%= @mannequin.count %>)</p>
   <div class="container">
     <div class="row">
       <% @mannequin.each do |m| %>
-        <div class="col-sm-6 col-md-3">
-          <div class="mannequin-card">
+      <div class="col-sm-6 col-md-3">
+        <div class="mannequin-card">
           <!-- link_to not working properly -->
           <p><%= link_to mannequin_path(m) do %>
             <%= cl_image_tag m.photos[0].path, width: 200, height: 200,gravity: :face, crop: :fill %>

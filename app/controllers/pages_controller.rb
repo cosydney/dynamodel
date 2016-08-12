@@ -1,5 +1,7 @@
-# for randoms http://stackoverflow.com/questions/2752231/random-record-in-activerecord
+# setting variable tu use the same everywhere
 
+@@hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
+# for randoms http://stackoverflow.com/questions/2752231/random-record-in-activerecord
 class PagesController < ApplicationController
   # overades the default action of divise (authentificate user)
   # It let's the homepage be accsess by not log-in users
@@ -13,7 +15,11 @@ class PagesController < ApplicationController
   end
 
   def search
-    @mannequin = Mannequin.all
+    @gender = params["search"] && !params["search"]["gender"].reject {|c| c.blank?}.blank? ? params["search"]["gender"] : ["women", "men"]
+    @hair = params ["search"]&& !params["search"]["hair_color"].reject{|c| c.blank?}.blank? ? params["search"]["hair_color"] : $hair_color
+    # @ethnicity = params["search"]["ethinicity"]
+    # @category = params["search"]["category"]
+    @mannequin = Mannequin.where(gender: @gender)
   end
 
   def contact
@@ -32,3 +38,5 @@ class PagesController < ApplicationController
   end
 
 end
+
+
