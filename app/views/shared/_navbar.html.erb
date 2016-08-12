@@ -79,6 +79,17 @@
         <li><a href="#">Men</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">How to use</a></li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
