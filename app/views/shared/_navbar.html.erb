@@ -42,15 +42,26 @@
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
+
+            <% if current_user.mannequin %>
+              <li>
+            <!-- mannequin can only edit self (notice sg, no id get's passed) -->
+             <%= link_to edit_mannequin_path do %>
+                <i class="fa fa-pencil"></i>  <%= t(".profile", default: "Edit Profile") %>
+              <% end %>
+            </li>
+            <% else %>
+              <li>
+            <!-- client can only edit self (notice sg, no id get's passed) -->
+             <%= link_to edit_client_path do %>
+                <i class="fa fa-pencil"></i>  <%= t(".profile", default: "Edit Profile") %>
+              <% end %>
+             </li>
+            <% end %>
+
             <li>
               <%= link_to "/users/edit" do %>
                 <i class="fa fa-cog"></i>  <%= t(".profile", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-            <!-- mannequin can only edit self (notice sg, no id get's passed) -->
-             <%= link_to edit_mannequin_path do %>
-                <i class="fa fa-cog"></i>  <%= t(".profile", default: "Edit Profile") %>
               <% end %>
             </li>
             <li>
