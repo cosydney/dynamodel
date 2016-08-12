@@ -6,3 +6,11 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require attachinary_template
+//
+//
+$(document).ready(function() {
+  $("#user_is_client").click(function(){
+    $('#is_client').val($("#user_is_client").prop('checked'))
+  });
+});
+
