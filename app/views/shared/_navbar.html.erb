@@ -33,16 +33,25 @@
 
           <ul class="dropdown-menu dropdown-menu-right navbar-black-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
               <%= link_to "/" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
-
+            <% if current_user.mannequin %>
+              <li>
+            <!-- mannequin can only see self (notice sg, no id get's passed) -->
+                <%= link_to mannequin_path do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+            <!-- client can only edit self (notice sg, no id get's passed) -->
+                <%= link_to client_path do %>
+                  <i class="fa fa-user"></i>  <%= t(".profile", default: "Profile") %>
+                <% end %>
+             </li>
+            <% end %>
             <% if current_user.mannequin %>
               <li>
             <!-- mannequin can only edit self (notice sg, no id get's passed) -->
@@ -58,7 +67,6 @@
               <% end %>
              </li>
             <% end %>
-
             <li>
               <%= link_to "/users/edit" do %>
                 <i class="fa fa-cog"></i>  <%= t(".profile", default: "Settings") %>
