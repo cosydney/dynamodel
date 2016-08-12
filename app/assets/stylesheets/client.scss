@@ -1,0 +1,20 @@
+.edit-client-container {
+  padding: 40px;
+  text-align: center;
+}
+.client-show-container {
+  margin: 0 auto;
+}
+.client-box {
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px RGBA(61, 56, 61, 0.4);
+  color: #3D383D;
+  background-color: rgb(245,245,245);
+  text-align: center;
+  padding: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  a {
+    text-decoration: none;
+  }
+}
