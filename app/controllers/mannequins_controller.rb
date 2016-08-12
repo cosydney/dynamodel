@@ -2,7 +2,6 @@ class MannequinsController < ApplicationController
   before_action :set_mannequin, only: [:edit, :update, :destroy]
   # A visitor can view each mannequin's profile
   skip_before_action :authenticate_user!, only: [:show, :index]
-
   # GET /mannequins
   # GET /mannequins.json
   def index
