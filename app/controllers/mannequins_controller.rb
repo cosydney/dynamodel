@@ -1,5 +1,7 @@
 class MannequinsController < ApplicationController
-  before_action :set_mannequin, only: [:show, :edit, :update, :destroy]
+  before_action :set_mannequin, only: [:edit, :update, :destroy]
+  # A visitor can view each mannequin's profile
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   # GET /mannequins
   # GET /mannequins.json
@@ -10,6 +12,7 @@ class MannequinsController < ApplicationController
   # GET /mannequins/1
   # GET /mannequins/1.json
   def show
+    @mannequin = Mannequin.find(params[:id])
     # this disables the header and footer on this specific pages
     @disable = true
   end

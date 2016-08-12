@@ -2,3 +2,29 @@
 @import "new-photos";
 @import "mannequin";
 @import "devise/index";
+@import "contact";
+
+
+.index-wrapper{
+  margin: 30px 80px;
+  a{
+    color: $brand-color;
+    &:hover{
+      text-decoration: none;
+      color: $brand-color;
+      opacity: 0.8;
+    }
+  }
+  img{
+    &:hover{
+    background-color: rgba(0,0,0,.5);
+    opacity: 0.8;
+    }
+  }
+}
+
+.mannequin-card{
+  margin-bottom: 35px;
+  width:auto;
+  margin-right: -30px;
+}

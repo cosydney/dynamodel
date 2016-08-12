@@ -1,18 +1,16 @@
-<p id="notice"><%= notice %></p>
-
+<!-- making a partial to display each categories -->
 
 <div class="index-wrapper">
-  <h1> Mannequins </h1>
+  <button class="btn-white-category"> <%= category[0].category.capitalize %></button>
   <br>
-  <p>Results: (<%= @mannequins.count %>)</p>
   <div class="container">
     <div class="row">
-      <% @mannequins.each do |m| %>
+      <% category.each do |m| %>
         <div class="col-sm-6 col-md-3">
           <div class="mannequin-card">
           <!-- link_to not working properly -->
-          <p><%= link_to mannequin_path(m) do %>
-            <%= cl_image_tag m.photos[0].path, width: 200, height: 200, crop: :fill %>
+          <p><%= link_to mannequin_path(m), target: '_blank' do %>
+            <%= cl_image_tag m.photos[0].path, width: 200, height: 200, gravity: :face, crop: :fill %>
             <div> <%= "#{m.first_name + " " + m.last_name[0] + "."}" %> </div>
             <% end %>
           </div>
@@ -22,3 +20,6 @@
     </div>
   </div>
 </div>
+<hr>
+
+

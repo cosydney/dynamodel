@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resource :mannequin, only: [:edit, :update]
   resources :clients, only: [:new, :create, :show, :edit, :update]
 
+  get "/page/mannequin/women" => "pages#women"
+  get "/page/mannequin/men" => "pages#men"
+  get "page/contact" => 'pages#contact'
+
   mount Attachinary::Engine => "/attachinary"
 
 #----------------------------------------ROUTES---------------------------------------------

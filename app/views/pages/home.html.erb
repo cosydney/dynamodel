@@ -1,3 +1,5 @@
+<!-- banner -->
+
 <div class="banner" style="background-image: url(<%= image_path 'dynamodel_banner.jpg' %>);">
   <div class="banner-content">
     <h1 class="f500" >Find quickly the best models</h1>
@@ -10,4 +12,46 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- categories -->
+
+<%= render partial: 'category', locals: { category: @hautecouture }  %>
+<%= render partial: 'category', locals: { category: @beaute}  %>
+<%= render partial: 'category', locals: { category: @atypique}  %>
+<%= render partial: 'category', locals: { category: @newface}  %>
+
+
+<!-- blog -->
+<div class="index-wrapper" id="blogrow">
+<%= link_to "http://blog.dynamodel.co" do %>
+<button class="btn-white-category"> From the Blog </button>
+<% end %>
+<div class="row">
+  <div class="col-sm-12 col-md-4">
+    <div class="text-center">
+      <a href="http://blog.dynamodel.co/amanda-n/">
+        <img src="http://s3-eu-central-1.amazonaws.com/cocomodel-blog/wp-content/uploads/2016/04/12084709/Amanda-N-bijoux-e1460447332238-825x501.jpg">
+        <p>Amanda-N</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <div class="text-center">
+      <a href="http://blog.dynamodel.co/sortir-du-lot-zoe-leger/">
+        <img src="http://s3-eu-central-1.amazonaws.com/cocomodel-blog/wp-content/uploads/2016/04/03220816/IMG_3152-e1459717696910-825x510.jpg">
+        <p> Sortir du lot - Zoé Léger</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <div class="text-center">
+      <a href="http://blog.dynamodel.co/marques-parisiennes-a-suivre/">
+        <img src="http://s3-eu-central-1.amazonaws.com/cocomodel-blog/wp-content/uploads/2016/03/23164702/girls-in-Paris1.jpg">
+        <p>Les 5 marques parisiennes à suivre</p>
+      </a>
+    </div>
+  </div>
+</div>
+</section>
 </div>

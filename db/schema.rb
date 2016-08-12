@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160811144223) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
+    t.string   "gender"
   end
 
   add_index "mannequins", ["user_id"], name: "index_mannequins_on_user_id", using: :btree
