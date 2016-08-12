@@ -5,20 +5,24 @@
     <%= m.error_notification %>
 
     <div class="form-inputs">
-      <%= m.input :first_name, placeholder: "Enter your name: " %>
-      <%= m.input :last_name, placeholder:"last name: " %>
+      <%= m.input :first_name, placeholder: "Enter your first name: " %>
+      <%= m.input :last_name, placeholder:"Enter your last name: " %>
       <%= m.input :phone %>
-      <%= m.input :age, collection: 18..60, prompt: "Select your age" %>
-      <%= m.input :category, collection: ["beaute", "haute-couture", "atypique", "new-face hipster"] %>
+
+      <%= m.input :age, as: :date, start_year: Date.today.year - 65,
+                              end_year: Date.today.year, discard_day: false,
+                              order: [:month, :day, :year] %>
+      <%= m.input :gender, collection: ["Female", "Male"], prompt: "Select your gender" %>
+      <%= m.input :category, collection: ["beaute", "haute-couture", "atypique", "new-face", "hipster"], prompt: "Select your category" %>
       <%= m.input :description, as: :text %>
-      <%= m.input :height, hint: 'You cannot change your username.' %>
-      <%= m.input :waist %>
-      <%= m.input :chest %>
-      <%= m.input :hips %>
-      <%= m.input :hair_color %>
+      <%= m.input :height, placeholder: "Please enter in cm " %>
+      <%= m.input :waist, placeholder: "Please enter in cm " %>
+      <%= m.input :chest,placeholder: "Please enter in cm " %>
+      <%= m.input :hips, placeholder: "Please enter in cm " %>
+      <%= m.input :hair_color, collection: ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"], prompt: "Select your hair color" %>
       <%= m.input :eyes %>
-      <%= m.input :ethnicity %>
-      <%= m.input :location %>
+      <%= m.input :ethnicity, collection: ["Caucasian", "Asian", "African", "Hispanic", "Metisse"], prompt: "Select your Ethnicity" %>
+      <%= m.input :location, placeholder: "City "%>
       <%= m.label 'Email: ', current_user.email, class: "form-mannequin-email" %>
     </div>
 
