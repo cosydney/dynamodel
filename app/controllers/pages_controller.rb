@@ -12,6 +12,10 @@ class PagesController < ApplicationController
     @newface = findbycategory("new-face")
   end
 
+  def search
+    @mannequin = Mannequin.all
+  end
+
   def contact
   end
 

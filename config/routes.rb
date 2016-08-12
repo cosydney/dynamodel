@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get "/page/mannequin/women" => "pages#women"
   get "/page/mannequin/men" => "pages#men"
+  get "/page/mannequin/search" => "pages#search"
   get "page/contact" => 'pages#contact'
 
   mount Attachinary::Engine => "/attachinary"
