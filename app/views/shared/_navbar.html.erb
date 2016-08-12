@@ -40,7 +40,7 @@
             <% if current_user.mannequin %>
               <li>
             <!-- mannequin can only see self (notice sg, no id get's passed) -->
-                <%= link_to mannequin_path do %>
+                <%= link_to mannequin_path(current_user.mannequin) do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
                 <% end %>
               </li>
