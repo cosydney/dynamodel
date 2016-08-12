@@ -17,7 +17,6 @@ class PhotoShootingsController < ApplicationController
     if @photo_shooting.save
       redirect_to client_photo_shooting_path(@photo_shooting), notice: "photo shoot Added!"
     else
-      byebug
       @mannequin = Mannequin.find(photo_shooting_params[:mannequin_id])
       render :template => "mannequins/show", notice: "Error!"
     end
