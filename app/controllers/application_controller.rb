@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(user)
-    if is_client
-      edit_client_path(current_user.client)  #here i’m defining the path
+    if user.mannequin
+        edit_mannequin_path #here i’m defining the path
     else
-      edit_mannequin_path
+      root
     end
   end
 

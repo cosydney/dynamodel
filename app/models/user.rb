@@ -9,11 +9,17 @@ class User < ActiveRecord::Base
 
   before_validation :set_profile
   validates :email, presence: true, uniqueness: true
-  #validation of either the client if is_client true, or of mannequin
-  validates :mannequin, presence: true, unless: :is_client
-  validates :client, presence: true, if: :is_client
 
-  #before the validation of the user, build a profile (cleint or mannequin)
+  # validation of either the client if is_client true, or of mannequin
+  # validates :mannequin, presence: true, unless: :should_confirm?
+  # validates :client, presence: true, if: :should_confirm?
+
+  # method to set is_client boolean val of is_client = "true" (note is a string)
+  def should_confirm?
+    is_client == "true" # Value of the hidden field as set in the form
+  end
+
+  #before the validation of the user, build a profile (client or mannequin)
   #with empty first_name and last_name
   def set_profile
     return if mannequin || client
@@ -37,7 +43,6 @@ class User < ActiveRecord::Base
     if user
       user.update(user_params)
     else
-      byebug
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
 
@@ -47,13 +52,11 @@ class User < ActiveRecord::Base
       else
         user.build_mannequin(auth.info.slice(:first_name, :last_name).to_h)
       end
-      byebug
+
       user.save
 
     end
-
     return user
   end
-
 
 end
