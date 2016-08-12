@@ -1,5 +1,6 @@
 class MannequinsController < ApplicationController
   before_action :set_mannequin, only: [:edit, :update, :destroy]
+  before_action :desauthorize_client, only:[:edit]
   # A visitor can view each mannequin's profile
   skip_before_action :authenticate_user!, only: [:show, :index]
 
@@ -47,6 +48,14 @@ class MannequinsController < ApplicationController
       # here the photos need to be at the end for some mystic reasons
       params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity, photos: [])
     end
+
+    def desauthorize_client
+    # If the current user is not a client, he gets redirected to the root page
+    if !current_user.mannequin
+      redirect_to root_path, alert: "You don't have the rights"
+    end
+  end
+
 
 
 end
