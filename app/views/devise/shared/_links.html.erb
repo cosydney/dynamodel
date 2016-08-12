@@ -1,10 +1,22 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+       <!--  ^ added button that responds to OmniAuth ^ -->
+       <!-- add is_client as a parameter -->
+
+    <%= form_tag omniauth_authorize_path(resource_name, provider), method: :get do %>
+      <%= hidden_field_tag :is_client %>
+      <%= submit_tag "Sign in with #{OmniAuth::Utils.camelize(provider)}", class: "btn-#{OmniAuth::Utils.camelize(provider).downcase} btn-block" %>
+    <% end %>
+  <% end -%>
+<% end -%>
+
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), :class => "btn btn-default btn-block" %><br />
+  <%= link_to "Log in", new_session_path(resource_name)%><br />
   <!-- add btn to login instead of only login name -->
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <%= link_to "Sign up", new_registration_path(resource_name)%><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -19,14 +31,4 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-       <!--  ^ added button that responds to OmniAuth ^ -->
-       <!-- add is_client as a parameter -->
 
-    <%= form_tag omniauth_authorize_path(resource_name, provider), method: :get do %>
-      <%= hidden_field_tag :is_client %>
-      <%= submit_tag "Sign in with #{OmniAuth::Utils.camelize(provider)}", class: "btn-#{OmniAuth::Utils.camelize(provider).downcase} btn-block" %>
-    <% end %>
-  <% end -%>
-<% end -%>
