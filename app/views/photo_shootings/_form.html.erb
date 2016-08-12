@@ -1,4 +1,4 @@
-<%= simple_form_for current_user.client.photo_shooting, url: '/client/photo_shooting' do |p| %>
+<%= simple_form_for @photo_shooting, url: client_photo_shooting_path do |p| %>
 
     <%= p.error_notification %>
 
@@ -7,15 +7,15 @@
       <%= p.input :date, as: :date, start_year: Date.today.year - 65,
                               end_year: Date.today.year, discard_day: false,
                               order: [:month, :day, :year] %>
-      <%= render 'location_form' %>
-      <%= p.association :mannequin, collection: Mannequin.active.order(:first_name), prompt: "Choose a Mannequin" %>
-      <%= p.input :budget,  %>
+
+      <%= p.association :mannequin, label_method: :first_name :last_name, value_method: :id, collection: @mannequins, prompt: "Choose a Mannequin" %>
+      <%= p.input :budget  %>
 
     </div>
 
 
   <div class="form-actions">
-    <%= m.button :submit, "Save", class: "btn btn-treehouse", style: "margin-top: 20px;" %>
+    <%= p.button :submit, "Save", class: "btn btn-treehouse", style: "margin-top: 20px;" %>
   </div>
 
 <% end %>

@@ -6,7 +6,7 @@ class PhotoShooting < ActiveRecord::Base
   validates :budget, presence: true
   validates :description, presence: true
 
-  validate :client, presence: true, uniqueness: true
-  validate :mannequin, presence: true
+  validates :client, presence: true, uniqueness: true
+  validates :mannequin, presence: true
 
 end

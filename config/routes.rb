@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
   # change resources to sg!, the mannequin con only update itself, not other mannequins
   resource :mannequin, only: [:edit, :update]
-  resources :clients, only: [:new, :create, :show, :edit, :update] do
-    resource :photo_shooting, only: [:new, :create, :show, :edit, :update, :destroy]
+  resource :client, only: [:new, :create, :show, :edit, :update] do
+    resource :photo_shooting, only: [:new, :create, :show, :destroy]
   end
 
   get "/page/mannequin/women" => "pages#women"
