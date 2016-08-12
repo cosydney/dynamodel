@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'photo_shootings/show'
-
-  get 'photo_shootings/new'
-
-  get 'photo_shootings/create'
-
-  get 'photo_shootings/destroy'
-
-  get 'photo_shootings/edit'
-
-  get 'photo_shootings/update'
-
   devise_for :users,
           controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 
