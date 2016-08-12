@@ -9,9 +9,7 @@
       <%= m.input :last_name, placeholder:"Enter your last name: " %>
       <%= m.input :phone %>
 
-      <%= m.input :age, as: :date, start_year: Date.today.year - 65,
-                              end_year: Date.today.year, discard_day: false,
-                              order: [:month, :day, :year] %>
+      <%= m.input :age, placeholde: 'dob' %>
       <%= m.input :gender, collection: ["women", "men"], prompt: "Select your gender" %>
       <%= m.input :category, collection: ["beaute", "haute-couture", "atypique", "new-face", "hipster"], prompt: "Select your category" %>
       <%= m.input :description, as: :text %>
