@@ -13,6 +13,8 @@ class MannequinsController < ApplicationController
   # GET /mannequins/1.json
   def show
     @mannequin = Mannequin.find(params[:id])
+
+    @photo_shooting = @mannequin.photo_shootings.build()
     # this disables the header and footer on this specific pages
     @disable = true
   end
@@ -54,7 +56,4 @@ class MannequinsController < ApplicationController
       redirect_to root_path, alert: "You don't have the rights"
     end
   end
-
-
-
 end
