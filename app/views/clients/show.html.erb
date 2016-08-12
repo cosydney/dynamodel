@@ -1,4 +1,23 @@
-<h1><%= @client.company_name%></h1>
-<p> <%= @client.website %></p>
-<%= link_to "Edit", edit_client_path(@client) %>
+<div class="client-show-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="gray-box">
+          <h1><%= @client.company_name%></h1>
+          <br>
+          <h4> <%= link_to "#{@client.website}", "http://#{@client.website}" %></h4>
+          <h4>Name: <%= @client.first_name %></h4>
+          <h4>Last name: <%= @client.last_name %></h4>
+          <br>
+          <%= link_to "Search", page_mannequin_path, :class => "btn-gray btn-base" %>
+          <%= link_to "Home", root_path, :class => "btn-gray btn-base" %>
+          <br>
+          <p><%= link_to "Edit", edit_client_path %><p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 

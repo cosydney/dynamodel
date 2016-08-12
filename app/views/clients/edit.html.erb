@@ -1,19 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <h1>Edit your profile</h1>
-      <%= simple_form_for(@client) do |f| %>
-        <%= f.error_notification %>
+<div class="edit-client-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="gray-box">
+          <h1>Edit your profile</h1>
+          <%= simple_form_for(current_user.client) do |f| %>
+            <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <%= f.input :company_name %>
-          <%= f.input :website %>
-        </div>
+            <div class="form-inputs">
+              <%= f.input :first_name%>
+              <%= f.input :last_name%>
+              <%= f.input :company_name %>
+              <%= f.input :website %>
+            </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Save" %>
+            <div class="form-actions">
+             <%= f.button :submit, "Save", :class => "btn-base btn-gray btn-block" %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

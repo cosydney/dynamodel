@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :is_client])
   end
-
   def after_sign_up_path_for(user)
     if user.mannequin
       edit_mannequin_path #here i’m defining the path
@@ -17,7 +16,6 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-
 end
 
 
