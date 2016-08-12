@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resource :client, only: [:show, :edit, :update] do
     resource :photo_shooting, only: [:show, :new, :create, :destroy]
-
+  end
   get "/page/mannequin/women" => "pages#women"
   get "/page/mannequin/men" => "pages#men"
   get "/page/mannequin/" => "pages#search"
