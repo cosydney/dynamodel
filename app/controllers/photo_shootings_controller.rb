@@ -17,15 +17,15 @@ class PhotoShootingsController < ApplicationController
     if @photo_shooting.save
       redirect_to client_photo_shooting_path(@photo_shooting), notice: "photo shoot Added!"
     else
-      render :new, notice: "Error!"
+      byebug
+      @mannequin = Mannequin.find(photo_shooting_params[:mannequin_id])
+      render :template => "mannequins/show", notice: "Error!"
     end
   end
 
   def destroy
     @photo_shooting.destroy
   end
-
-
 
   private
 
@@ -34,7 +34,7 @@ class PhotoShootingsController < ApplicationController
   end
 
   def photo_shooting_params
-    params.require(:photo_shooting).permit(:address, :zip_code, :city, :country, :date, :budget, :description)
+    params.require(:photo_shooting).permit(:address, :zip_code, :city, :country, :date, :budget, :description, :mannequin_id)
   end
 end
 

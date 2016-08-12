@@ -12,6 +12,8 @@ class MannequinsController < ApplicationController
   # GET /mannequins/1.json
   def show
     @mannequin = Mannequin.find(params[:id])
+
+    @photo_shooting = @mannequin.photo_shootings.build()
     # this disables the header and footer on this specific pages
     @disable = true
   end
@@ -46,6 +48,5 @@ class MannequinsController < ApplicationController
       # here the photos need to be at the end for some mystic reasons
       params.require(:mannequin).permit(:first_name, :last_name, :phone, :age, :location, :category, :description, :height, :waist, :chest, :hips, :hair_color, :eyes, :ethnicity, photos: [])
     end
-
 
 end
