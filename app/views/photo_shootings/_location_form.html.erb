@@ -1,0 +1,31 @@
+
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+           aria-expanded="true" aria-controls="collapseOne">
+          Location
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+      <div class="container padded-top">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= simple_form_for @photo_shooting, url: client_photo_shooting_path do |f| %>
+              <%= f.input :address %>
+              <%= f.input :zip_code %>
+              <%= f.input :city %>
+              <%= f.input :country, priority: [ 'FR' ] %>
+
+              <%= f.submit class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
