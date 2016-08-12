@@ -8,17 +8,17 @@
       <div class="container">
         <div class="row">
 
-
+<%= simple_form_for :search, method: "get", url: page_mannequin_path do |m| %>
           <div class="col-xs-12 col-md-6">
-            <%= simple_form_for :search, method: "get", url: page_mannequin_path do |m| %>
             <%= m.error_notification %>
-            <%= m.input :gender, collection: ["men", "women"], prompt: "Select your gender", as: :check_boxes, checked: @searchy["gender"] %>
-            <%= m.input :hair_color, collection: Mannequin.hair_color, prompt: "Select your hair color", as: :check_boxes, checked: @searchy["hair_color"]  %>
-            <%= m.input :ethnicity, collection: Mannequin.ethnicity, prompt: "Select your Ethnicity", as: :check_boxes, checked: @searchy["ethnicity"] %>
+            <%= m.input :gender, collection: ["men", "women"], prompt: "Select your gender", as: :check_boxes, checked: @searchy["gender"], required: false %>
+            <%= m.input :hair_color, collection: Mannequin.hair_color, prompt: "Select your hair color", as: :check_boxes, checked: @searchy["hair_color"], required: false %>
+
           </div>
           <div class="col-xs-12 col-md-6">
-            <%= m.input :category, collection: Mannequin.category, prompt: "Select your category", as: :check_boxes, checked: @searchy["category"] %>
-            <%= m.button :submit, "Search", class: "btn btn-treehouse", style: "margin-top: 20px;", as: :check_boxes %>
+           <%= m.input :ethnicity, collection: Mannequin.ethnicity, prompt: "Select your Ethnicity", as: :check_boxes, checked: @searchy["ethnicity"], required: false %>
+            <%= m.input :category, collection: Mannequin.category, prompt: "Select your category", as: :check_boxes, checked: @searchy["category"], required: false %>
+            <%= m.button :submit, "Search", class: "btn btn-treehouse", style: "margin-top: 20px;", as: :check_boxes, class: "btn btn-white-category pull-right", id: 'btn-search' %>
             <% end %>
           </div>
         </div>
