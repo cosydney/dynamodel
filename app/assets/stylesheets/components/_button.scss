@@ -1,15 +1,15 @@
 
 .btn-white-category{
-    padding: 9px 18px;
-    margin-bottom: 20px;
-    border: 1px solid $brand-color;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: white;
-    &:hover{
+  padding: 9px 18px;
+  margin-bottom: 20px;
+  border: 1px solid $brand-color;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: white;
+  &:hover{
     background-color: $brand-color;
     color: white;
-    }
+  }
 }
 
 .btn-white {
@@ -32,9 +32,9 @@
   letter-spacing: 2px;
   margin-bottom:10px;
   &:hover{
-     background-color: #3B3B3C;
-  color: #FFFFFF;
-  }
+   background-color: #3B3B3C;
+   color: #FFFFFF;
+ }
 }
 
 .btn-facebook{
@@ -51,54 +51,83 @@
   }
 }
 
-
-
-.btn-yellow{
-  background-color: $yellow;
-  border-radius: 35px;
-  border: solid 1px $yellow;
-  transition: all 0.2s ease;
-  padding: 8px 30px;
-  color: whitesmoke;
-  &:hover{
-  background-color: whitesmoke;
-  padding: 8px 31px;
-  color: $yellow;
-  font-weight: bold;
-}
+.btn-medium {
+  color: #3B3B3C;
+  border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.5;
+  background-color: lightblue;
 }
 
-.btn-blue{
-  background-color: $blue;
-  border-radius: 35px;
-  border: solid 1px $blue;
-  transition: all 0.2s ease;
-  padding: 8px 30px;
-  color: whitesmoke;
-  &:hover{
-  background-color: whitesmoke;
-  padding: 8px 31px;
-  color: $blue;
-  font-weight: bold;
+.btn-medium:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  color: #3B3B3C;
 }
-}
-
-.btn-delete{
-  background-color: #07beb8;
-  border-radius: 35px;
-  margin-top: 4px;
-  border: solid 1px #07beb8;
-  transition: all 0.2s ease;
-  padding: 4px 15px;
+.btn-treehouse {
   color: white;
-
-  &:hover{
-    background-color: white;
-    border-radius: 35px;
-    padding: 4px 15px;
-    border: solid 1px #3b3b3c;
-    color: #3b3b3c;
-    font-weight: bold;
-  }
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
 }
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+  .btn-yellow{
+    background-color: $yellow;
+    border-radius: 35px;
+    border: solid 1px $yellow;
+    transition: all 0.2s ease;
+    padding: 8px 30px;
+    color: whitesmoke;
+    &:hover{
+      background-color: whitesmoke;
+      padding: 8px 31px;
+      color: $yellow;
+      font-weight: bold;
+    }
+  }
+
+  .btn-blue{
+    background-color: $blue;
+    border-radius: 35px;
+    border: solid 1px $blue;
+    transition: all 0.2s ease;
+    padding: 8px 30px;
+    color: whitesmoke;
+    &:hover{
+      background-color: whitesmoke;
+      padding: 8px 31px;
+      color: $blue;
+      font-weight: bold;
+    }
+  }
+
+  .btn-delete{
+    background-color: #07beb8;
+    border-radius: 35px;
+    margin-top: 4px;
+    border: solid 1px #07beb8;
+    transition: all 0.2s ease;
+    padding: 4px 15px;
+    color: white;
+
+    &:hover{
+      background-color: white;
+      border-radius: 35px;
+      padding: 4px 15px;
+      border: solid 1px #3b3b3c;
+      color: #3b3b3c;
+      font-weight: bold;
+    }
+
+  }
 

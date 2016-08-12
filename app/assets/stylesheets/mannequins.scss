@@ -1,3 +1,34 @@
 // Place all the styles related to the Mannequins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*Whole form: */
+.edit_mannequin {
+  padding: 40px;
+  color: #3B3B3C;
+  box-shadow: 1px 2px 5px 0px rgba(122,115,122,1);;
+  background-color: #F0F1F1;
+  /*font-family: */
+}
+
+/*top of each pannel: */
+.panel-heading {
+  color:#3B3B3C !important;
+  background-color: #F0F1F1 !important;
+  border-bottom: none !important;
+  border-radius: 3px !important;
+
+    &:hover {
+      text-decoration: none !important;
+    }
+    a {
+      font-weight: lighter;
+      text-decoration: none !important;
+    }
+}
+
+/*email at the bottom: */
+.form-mannequin-email {
+  color: lightgreen;
+  font-weight: lighter;
+}
