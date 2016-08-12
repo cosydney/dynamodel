@@ -1,4 +1,3 @@
-hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
 <!-- add url for the update, so that the update targets the correct place -->
 
   <%= simple_form_for current_user.mannequin, url: '/mannequin' do |m| %>
@@ -20,7 +19,7 @@ hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
       <%= m.input :waist, placeholder: "Please enter in cm " %>
       <%= m.input :chest,placeholder: "Please enter in cm " %>
       <%= m.input :hips, placeholder: "Please enter in cm " %>
-      <%= m.input :hair_color, collection: hair_color, prompt: "Select your hair color" %>
+      <%= m.input :hair_color, collection: Mannequin.hair_color, prompt: "Select your hair color" %>
       <%= m.input :eyes %>
       <%= m.input :ethnicity, collection: ["Caucasian", "Asian", "African", "Hispanic", "Metisse"], prompt: "Select your Ethnicity" %>
       <%= m.input :location, placeholder: "City "%>

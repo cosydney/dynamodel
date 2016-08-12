@@ -1,4 +1,3 @@
-hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
 <p id="notice"><%= notice %></p>
 
 <div class="index-wrapper">
@@ -13,13 +12,12 @@ hair_color = ["Blond", "Brunnette", "Red Hair", "Auburn", "Black"]
           <div class="col-xs-12 col-md-6">
             <%= simple_form_for :search, method: "get", url: page_mannequin_path do |m| %>
             <%= m.error_notification %>
-            <%= m.input :gender, collection: ["men", "women"], prompt: "Select your gender", as: :check_boxes %>
-           <%= m.input :hair_color, collection: hair_color, prompt: "Select your hair color", as: :check_boxes %>
-<!--              <%= m.input :ethnicity, collection: ["Caucasian", "Asian", "African", "Hispanic", "Metisse"], prompt: "Select your Ethnicity", as: :check_boxes %>
+            <%= m.input :gender, collection: ["men", "women"], prompt: "Select your gender", as: :check_boxes, checked: @searchy["gender"] %>
+            <%= m.input :hair_color, collection: Mannequin.hair_color, prompt: "Select your hair color", as: :check_boxes, checked: @searchy["hair_color"]  %>
+            <%= m.input :ethnicity, collection: Mannequin.ethnicity, prompt: "Select your Ethnicity", as: :check_boxes, checked: @searchy["ethnicity"] %>
           </div>
           <div class="col-xs-12 col-md-6">
-            <%= m.input :age, placeholder: "maximum age" %>
-            <%= m.input :category, collection: ["beaute", "haute-couture", "atypique", "new-face", "hipster"], prompt: "Select your category", as: :check_boxes %> -->
+            <%= m.input :category, collection: Mannequin.category, prompt: "Select your category", as: :check_boxes, checked: @searchy["category"] %>
             <%= m.button :submit, "Search", class: "btn btn-treehouse", style: "margin-top: 20px;", as: :check_boxes %>
             <% end %>
           </div>
