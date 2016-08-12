@@ -9,8 +9,10 @@
           <h4>Name: <%= @client.first_name %></h4>
           <h4>Last name: <%= @client.last_name %></h4>
           <br>
+          <%= link_to "Search", page_mannequin_path, :class => "btn-gray btn-base" %>
           <%= link_to "Home", root_path, :class => "btn-gray btn-base" %>
-          <%= link_to "Edit", edit_client_path, :class => "btn-gray btn-base" %>
+          <br>
+          <p><%= link_to "Edit", edit_client_path %><p>
         </div>
       </div>
     </div>
