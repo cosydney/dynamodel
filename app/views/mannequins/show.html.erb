@@ -45,16 +45,17 @@
               <% @mannequin.photos.each do |photo| %>
               <%= cl_image_tag photo.path, width: 600, crop: :fill %>
               <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
+               <div class="row">
           <div class="col-xs-12">
             <%= render 'photo_shootings/form' %>
           </div>
         </div>
       </div>
     </div>
+            </div>
+          </div>
+        </div>
+
 
     <div id="mobile-show">
       <div><h1><%= @mannequin.first_name %> <%= @mannequin.last_name %></h1></div>
@@ -98,7 +99,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
 
